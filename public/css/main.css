@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oswald:wght@400;500&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+}
+nav .nav-brand {
+  margin-left: 3em;
+}
+nav .nav-links {
+  margin-right: 3em;
+}
+nav .nav-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+nav .nav-links ul a {
+  text-decoration: none;
+  color: #000000;
+  padding: 1rem;
+  padding-bottom: 0.2rem;
+  display: block;
+  border-bottom: 3px solid #FFFFFF;
+  transition: 0.2s ease;
+}
+nav .nav-links ul a:hover {
+  border-bottom: 3px solid #FFA800;
+}
+nav .nav-links .nav-languages {
+  display: none;
+}
+nav .nav-links.active {
+  display: flex;
+}
+nav .bar1.active-bar-one {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+nav .bar2.active-bar-two {
+  opacity: 0;
+}
+nav .bar3.active-bar-three {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+nav .toggle-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+nav .toggle-btn .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #000000;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav .toggle-btn {
+    display: flex;
+  }
+  nav .nav-links {
+    display: none;
+    width: 100%;
+  }
+  nav .nav-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  nav .nav-links ul li {
+    text-align: center;
+    padding: 0.9rem;
+    display: flex;
+    justify-content: center;
+  }
+  nav .nav-links .nav-languages {
+    display: flex;
+    gap: 2em;
+  }
+  nav .nav-links .nav-languages .lang-active {
+    border-bottom: 3px solid #FFA800;
+  }
+  nav .nav-links .lv-lang {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

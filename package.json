@@ -1,0 +1,23 @@
+{
+  "name": "task-two",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litaish/task-two.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/litaish/task-two/issues"
+  },
+  "homepage": "https://github.com/litaish/task-two#readme",
+  "devDependencies": {
+    "sass": "^1.49.7"
+  }
+}
