@@ -148,6 +148,16 @@ nav .toggle-btn .bar {
     flex-wrap: wrap;
   }
 }
+@media (max-width: 700px) {
+  .supporters-container {
+    margin-bottom: -10%;
+  }
+}
+@media (max-width: 576px) {
+  .supporters-container {
+    margin-bottom: -20%;
+  }
+}
 @media (max-width: 840px) {
   .nav-border {
     margin-top: -2em;
@@ -163,6 +173,10 @@ nav .toggle-btn .bar {
 @media (max-width: 528px) {
   form .form-group-one {
     flex-direction: column;
+  }
+
+  .supporters-container {
+    margin-bottom: -30%;
   }
 }
 @media (max-width: 412px) {
@@ -242,10 +256,9 @@ nav .toggle-btn .bar {
 }
 
 .grid-border {
-  margin-top: -4em;
-}
-.grid-border img {
   width: 100%;
+  position: absolute;
+  margin-top: -3%;
 }
 
 .choice-panel {
@@ -374,7 +387,7 @@ nav .toggle-btn .bar {
 
 .supporters-container {
   padding-top: 8em;
-  padding-bottom: 4em;
+  padding-bottom: 6em;
   background-repeat: repeat-x;
 }
 .supporters-container .supporters-text {
@@ -386,9 +399,7 @@ nav .toggle-btn .bar {
 }
 
 footer {
-  border-image: url("./assets/img/borders/blue_border.png") 30 round;
   font-family: "Montserrat", sans-serif;
-  padding-top: 3em;
   color: #FFFFFF;
   padding-left: 4em;
   width: 100%;
@@ -432,6 +443,12 @@ footer .fter-item-4 a {
 }
 footer .fter-item-4 a:hover {
   color: #FFFFFF;
+}
+
+.footer-border {
+  width: 100%;
+  margin-bottom: -25%;
+  margin-top: -6%;
 }
 
 /*# sourceMappingURL=main.css.map */

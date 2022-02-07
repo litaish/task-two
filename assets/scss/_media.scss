@@ -54,6 +54,16 @@
         flex-wrap: wrap;
     }
 }
+@media (max-width: 700px){
+    .supporters-container {
+        margin-bottom: -10%;
+    }
+}
+@media (max-width: 576px){
+    .supporters-container {
+        margin-bottom: -20%;
+    }
+}
 @media (max-width: 840px){
     .nav-border {
         margin-top: -2em;
@@ -73,9 +83,13 @@
             flex-direction: column;
         }
     }
+    .supporters-container {
+        margin-bottom: -30%;
+    }
 }
 @media (max-width: 412px){
     .nav-border {
         margin-top:-1em;
     }
+    
 }

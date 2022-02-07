@@ -3,7 +3,7 @@
 
 .supporters-container {
     padding-top: 8em;
-    padding-bottom: 4em;
+    padding-bottom: 6em;
     background-repeat: repeat-x;
     .supporters-text {
         font-family: fonts.$oswald;
@@ -14,9 +14,7 @@
     }
 }
 footer {
-    border-image: url('./assets/img/borders/blue_border.png') 30 round;
     font-family: fonts.$montserrat;
-    padding-top: 3em;
     color: colors.$whitePanel;
     padding-left: 4em;
     width: 100%;
@@ -60,4 +58,9 @@ footer {
            }
        }
     }
+}
+.footer-border {
+    width: 100%;
+    margin-bottom: -25%;
+    margin-top: -6%;
 }
