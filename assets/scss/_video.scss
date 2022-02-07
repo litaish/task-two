@@ -1,0 +1,39 @@
+@use 'colors';
+
+.video-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: -5em;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .play-circle {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 4;
+        background-color: colors.$yellowBtn;
+        display:block;
+        width:86px;
+        height:83px;
+        padding-top: 8px;
+        line-height: 83px;
+        border-radius: 50%;
+        color:colors.$whitePanel;
+        text-align:center;
+        text-decoration:none;
+        font-size:20px;
+        font-weight:bold;
+        transition: all 0.3s ease;
+        &:hover {
+            box-shadow: 0px 0px 10px colors.$bluePane;
+	        text-shadow: 0px 0px 10px colors.$whitePanel;
+        }
+    }
+}

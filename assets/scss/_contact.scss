@@ -1,0 +1,125 @@
+@use 'fonts';
+@use 'colors';
+
+.choice-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5em;
+    column-gap: 12em;
+    padding-top: 9em;
+    padding-left: 10%;
+    padding-right: 10%;
+    .choice-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2.6em;
+        h3 {
+            font-family: fonts.$oswald;
+            text-transform: uppercase;
+            color: colors.$bluePane;
+            font-size: fonts.$heading3_Oswald;
+         }
+    }
+}
+.btn-yellow {
+    background-color: colors.$yellowBtn;
+    font-family: fonts.$montserrat;
+    font-size: fonts.$montserratAbout;
+    border: none;
+    color: colors.$whitePanel;
+    text-align: center;
+    border-radius: 50px;
+    height: 50px;
+    width: 233px;
+    transition: 0.3s;
+    &:hover  {
+        background-color: colors.$hoverBtn;
+    }
+    &:active {
+        background-color: colors.$activeBtn;
+    }
+}
+.form-wrapper {
+    ::placeholder {
+        color: colors.$bluePane;
+    }
+    display: flex;
+    justify-content: center;
+    padding-top: 10em;
+    padding-bottom: 7em;
+    form {
+        padding-left: 33%;
+        padding-right: 33%;
+        input[type="text"], textarea {
+            padding: 0.5em;
+            background-color: colors.$form;
+            border: 0;
+            border-radius: 6px;
+            font-family: fonts.$montserrat;
+            font-size: fonts.$montserratAbout;
+            margin: 0.4em;
+            &:focus {
+                outline: none;
+        }
+    }
+        input[type="text"] {
+            height: 43px;
+        }
+        h2 {
+            font-family: fonts.$oswald;
+            font-size: fonts.$heading2_Oswald;
+            text-transform: uppercase;
+            color: colors.$bluePane;
+            text-align: center;
+            padding-bottom: 1.5em;
+        }
+        .form-group-one {
+            display: flex;
+            input {
+                flex-grow: 1;
+            }
+            
+        }
+        .form-group-two {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1em;
+        }
+        .reminder {
+            font-family: fonts.$montserrat;
+            color: colors.$bluePane;
+            font-size: fonts.$montserratReminder;
+            font-weight: fonts.$aboutWeight;
+            margin-left: 0.4em;
+        }
+        .checkbox-wrapper {
+            display: flex;
+            margin-left: 0.4em;
+            column-gap: 0.7em;
+            input[type="checkbox"] {
+                width: 1em;
+                height: 1em;
+                filter: grayscale(1);
+            }
+            p {
+                flex-basis: 85%;
+                font-family: fonts.$montserrat;
+                color: colors.$bluePane;
+                font-size: fonts.$montserratReminder;
+                font-weight: fonts.$aboutWeight;
+            }
+        }
+    }
+    .submit-wrapper {
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        input {
+            width: 182px;
+            font-size: fonts.$submitText;
+        }
+    }
+}

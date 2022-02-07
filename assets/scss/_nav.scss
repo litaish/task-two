@@ -4,11 +4,13 @@
 nav {
     font-family: fonts.$montserrat;
     font-size: fonts.$montserratNav;
-    background-color: white;
+    font-weight: fonts.$navWeight;
+    background-color: colors.$whitePanel;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: relative;
+    z-index: 3;
     .nav-brand {
         margin-left: 3em;
     }
@@ -53,8 +55,8 @@ nav {
     }
     .toggle-btn {
         position: absolute;
-        top: 0.75rem;
-        right: 1rem;
+        top: 2rem;
+        right: 3rem;
         display: none;
         flex-direction: column;
         justify-content: space-between;
@@ -68,4 +70,10 @@ nav {
             transition: all 0.4s ease-in-out;
         }
     }
+}
+.nav-border {
+    width: 100%;
+    margin-top: -9em;
+    position: absolute;
+    z-index: 2;
 }

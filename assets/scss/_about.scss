@@ -1,0 +1,18 @@
+@use 'fonts';
+@use 'colors';
+
+.about-panel {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10% 15% 10% 15%;
+    p {
+        font-family: fonts.$montserrat;
+        font-size: fonts.$montserratAbout;
+        font-weight: fonts.$aboutWeight;
+        color: colors.$bluePane;
+    }
+}
+.about-border {
+    position: absolute;
+    width: 100%;
+}

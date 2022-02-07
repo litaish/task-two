@@ -1,0 +1,63 @@
+@use 'fonts';
+@use 'colors';
+
+.supporters-container {
+    padding-top: 8em;
+    padding-bottom: 4em;
+    background-repeat: repeat-x;
+    .supporters-text {
+        font-family: fonts.$oswald;
+        text-transform: uppercase;
+        color: colors.$bluePane;
+        font-size: fonts.$heading3_Oswald;
+        text-align: center;
+    }
+}
+footer {
+    border-image: url('./assets/img/borders/blue_border.png') 30 round;
+    font-family: fonts.$montserrat;
+    padding-top: 3em;
+    color: colors.$whitePanel;
+    padding-left: 4em;
+    width: 100%;
+    padding-right: 4em;
+    background-color: colors.$bluePane;
+    display: flex;
+    justify-content: center;
+    ul {
+        list-style-type: none; 
+        padding: 0; 
+        margin: 0; 
+        li {
+            padding: 0.5em;
+        }
+        a {
+            text-decoration: none;
+            color: colors.$whitePanel;
+            &:hover {
+                color: colors.$whitePanel;
+       }
+        }
+    }
+    .fter-item {
+        flex-basis: 25%;
+        .fter-text-small {
+            text-decoration: none;
+            font-size: fonts.$montserratReminder;
+        } 
+    }
+    .fter-text-large {
+        font-size: fonts.$heading3_Oswald;
+    }
+    .fter-item-4 {
+        text-align: right;
+            a {
+                margin: 4em 0 2em 0.5em;
+                font-size: 2rem;
+                color: colors.$whitePanel;
+                &:hover {
+                    color: colors.$whitePanel;
+           }
+       }
+    }
+}
