@@ -76,6 +76,12 @@
             margin-top: 3em;
         }
     }
+    .img-container {
+        flex-wrap: no-wrap;
+        .img-container-item {
+            flex: 0 0 auto;
+        }
+    }
 }
 @media (max-width: 528px){
     form {
