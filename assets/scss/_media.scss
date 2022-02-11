@@ -63,6 +63,27 @@
     .supporters-container {
         margin-bottom: -20%;
     }
+    .img-container {
+        grid-template-columns: 50% 50% !important;
+        grid-template-rows: 50% 50% !important;
+
+        .grid-split {
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        .child-4 {
+            grid-column-start: 2;
+            grid-row-start: 1;
+        }
+        .child-1 {
+            grid-column-start: 1;
+            grid-row-start: 2;
+        }
+        .child-2 {
+            grid-column-start: 2;
+            grid-row-start: 2;
+        }
+    }
 }
 @media (max-width: 840px){
     .nav-border {
