@@ -169,6 +169,13 @@ nav .toggle-btn .bar {
   .video-wrapper .play-circle {
     margin-top: 3em;
   }
+
+  .img-container {
+    flex-wrap: no-wrap;
+  }
+  .img-container .img-container-item {
+    flex: 0 0 auto;
+  }
 }
 @media (max-width: 528px) {
   form .form-group-one {
