@@ -1,15 +1,12 @@
-@use 'layout';
+@use 'layout/layout';
+@use 'layout/nav';
+@use 'layout/contact';
+@use 'layout/footer';
 
-@use 'nav';
+@use 'components/video';
+@use 'components/imggrid';
+@use 'components/buttons';
 
-@use 'media';
+@use 'pages/home';
 
-@use 'video';
 
-@use 'about';
-
-@use 'imggrid';
-
-@use 'contact';
-
-@use 'general_info';

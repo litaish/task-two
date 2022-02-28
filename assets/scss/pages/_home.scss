@@ -1,0 +1,72 @@
+@use '../abstracts/colors';
+@use '../base/fonts';
+
+// About section
+.about-panel {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10% 15% 10% 15%;
+    p {
+        font-family: fonts.$montserrat;
+        font-size: fonts.$montserratAbout;
+        font-weight: fonts.$aboutWeight;
+        color: colors.$bluePane;
+    }
+}
+.about-border {
+    position: absolute;
+    width: 100%;
+}
+// Supporters section
+.supporters-container {
+    padding-top: 8em;
+    padding-bottom: 6em;
+    background-repeat: repeat-x;
+    .supporters-text {
+        font-family: fonts.$oswald;
+        text-transform: uppercase;
+        color: colors.$bluePane;
+        font-size: fonts.$heading3_Oswald;
+        text-align: center;
+    }
+}
+// Choice panel before contact form
+.choice-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5em;
+    column-gap: 12em;
+    padding-top: 9em;
+    padding-left: 10%;
+    padding-right: 10%;
+    .choice-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2.6em;
+        h3 {
+            font-family: fonts.$oswald;
+            text-transform: uppercase;
+            color: colors.$bluePane;
+            font-size: fonts.$heading3_Oswald;
+         }
+    }
+}
+// Media for supporters
+@media (max-width: 700px){
+    .supporters-container {
+        margin-bottom: -10%;
+    }
+}
+@media (max-width: 576px){
+    .supporters-container {
+        margin-bottom: -20%;
+    }
+}
+@media (max-width: 528px){
+    .supporters-container {
+        margin-bottom: -30%;
+    }
+}

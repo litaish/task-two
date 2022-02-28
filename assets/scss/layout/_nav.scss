@@ -1,5 +1,5 @@
-@use 'colors';
-@use 'fonts';
+@use '../abstracts/colors';
+@use '../base/fonts';
 
 nav {
     font-family: fonts.$montserrat;
@@ -76,4 +76,43 @@ nav {
     margin-top: -9em;
     position: absolute;
     z-index: 2;
+}
+// Media for nav
+@media (max-width: 915px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        .toggle-btn {
+            display: flex;
+        }
+        .nav-links {
+            display: none;
+            width: 100%;
+            ul {
+                width: 100%;
+                flex-direction: column;
+                li {
+                    text-align: center;
+                    padding: 0.9rem;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            .nav-languages {
+                display: flex;
+                gap: 2em;
+                .lang-active {
+                    border-bottom: 3px solid colors.$yellowBtn;
+                }
+            }
+           .lv-lang {
+               display: none;
+           } 
+        }
+    }
+}
+@media (max-width: 1669px){
+    .nav-border {
+        margin-top: -4em;
+    }
 }

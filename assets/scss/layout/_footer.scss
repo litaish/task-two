@@ -1,18 +1,6 @@
-@use 'fonts';
-@use 'colors';
+@use '../abstracts/colors';
+@use '../base/fonts';
 
-.supporters-container {
-    padding-top: 8em;
-    padding-bottom: 6em;
-    background-repeat: repeat-x;
-    .supporters-text {
-        font-family: fonts.$oswald;
-        text-transform: uppercase;
-        color: colors.$bluePane;
-        font-size: fonts.$heading3_Oswald;
-        text-align: center;
-    }
-}
 footer {
     font-family: fonts.$montserrat;
     color: colors.$whitePanel;
@@ -63,4 +51,17 @@ footer {
     width: 100%;
     margin-bottom: -25%;
     margin-top: -6%;
+}
+// Media for footer
+@media (max-width: 1000px){
+    .fter-item-2 {
+        display: none;
+    }
+    .fter-item-3 {
+        display: none;
+    }
+    footer {
+        column-gap: 7em;
+        flex-wrap: wrap;
+    }
 }
