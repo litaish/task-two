@@ -6,6 +6,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  outline: 1px solid #f00 !important;
 }
 
 body {
@@ -87,12 +88,12 @@ nav .toggle-btn .bar {
 
 .nav-border {
   width: 100%;
-  margin-top: -9em;
+  margin-top: -7%;
   position: absolute;
   z-index: 2;
 }
 
-@media (max-width: 915px) {
+@media screen and (max-width: 1024px) {
   nav {
     flex-direction: column;
     align-items: flex-start;
@@ -123,11 +124,6 @@ nav .toggle-btn .bar {
   }
   nav .nav-links .lv-lang {
     display: none;
-  }
-}
-@media (max-width: 1669px) {
-  .nav-border {
-    margin-top: -4em;
   }
 }
 .form-wrapper {

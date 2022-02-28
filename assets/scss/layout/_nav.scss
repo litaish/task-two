@@ -1,5 +1,6 @@
 @use '../abstracts/colors';
 @use '../base/fonts';
+@use '../abstracts/mixins';
 
 nav {
     font-family: fonts.$montserrat;
@@ -73,12 +74,12 @@ nav {
 }
 .nav-border {
     width: 100%;
-    margin-top: -9em;
+    margin-top: -7%;
     position: absolute;
     z-index: 2;
 }
-// Media for nav
-@media (max-width: 915px) {
+//Media for navbar
+@include mixins.tab {
     nav {
         flex-direction: column;
         align-items: flex-start;
@@ -110,9 +111,5 @@ nav {
            } 
         }
     }
-}
-@media (max-width: 1669px){
-    .nav-border {
-        margin-top: -4em;
-    }
-}
+} 
+
