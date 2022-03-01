@@ -1,3 +1,5 @@
+@use '../abstracts/mixins';
+
 .grid-border {
     width: 100%;
     position: absolute;
@@ -18,8 +20,7 @@
         grid-template-rows: repeat(2, 1fr);
     }
 }
-// Media for image grid
-@media (max-width: 576px){
+@include mixins.mob-large {
     .img-container {
         grid-template-columns: 50% 50% !important;
         grid-template-rows: 50% 50% !important;
@@ -39,14 +40,6 @@
         .child-2 {
             grid-column-start: 2;
             grid-row-start: 2;
-        }
-    }
-}
-@media (max-width: 840px){
-    .img-container {
-        flex-wrap: no-wrap;
-        .img-container-item {
-            flex: 0 0 auto;
         }
     }
 }

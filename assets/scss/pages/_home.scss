@@ -1,5 +1,6 @@
 @use '../abstracts/colors';
 @use '../base/fonts';
+@use '../abstracts/mixins';
 
 // About section
 .about-panel {
@@ -18,10 +19,17 @@
     width: 100%;
 }
 // Supporters section
+.supporters-border {
+    margin-bottom: -2%;
+    img {
+        background-color: colors.$yellowPane;
+        width: 100%;
+    }
+}
 .supporters-container {
-    padding-top: 8em;
-    padding-bottom: 6em;
-    background-repeat: repeat-x;
+    padding-top: 6em;
+    padding-bottom: 8em;
+    background-color: colors.$yellowPane;
     .supporters-text {
         font-family: fonts.$oswald;
         text-transform: uppercase;
@@ -54,19 +62,18 @@
          }
     }
 }
-// Media for supporters
-@media (max-width: 700px){
-    .supporters-container {
+@include mixins.mob {
+        .supporters-container {
         margin-bottom: -10%;
     }
 }
-@media (max-width: 576px){
-    .supporters-container {
+@include mixins.mob-large {
+        .supporters-container {
         margin-bottom: -20%;
     }
 }
-@media (max-width: 528px){
-    .supporters-container {
+@include mixins.mob-mid {
+        .supporters-container {
         margin-bottom: -30%;
     }
 }

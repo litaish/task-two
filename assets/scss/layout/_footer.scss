@@ -1,5 +1,6 @@
 @use '../abstracts/colors';
 @use '../base/fonts';
+@use '../abstracts/mixins';
 
 footer {
     font-family: fonts.$montserrat;

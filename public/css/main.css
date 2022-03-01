@@ -6,7 +6,6 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
-  outline: 1px solid #f00 !important;
 }
 
 body {
@@ -136,8 +135,8 @@ nav .toggle-btn .bar {
   color: #2F4858;
 }
 .form-wrapper form {
-  padding-left: 33%;
-  padding-right: 33%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 .form-wrapper form input[type=text], .form-wrapper form textarea {
   padding: 0.5em;
@@ -207,9 +206,14 @@ nav .toggle-btn .bar {
   font-size: 1.5rem;
 }
 
-@media (max-width: 528px) {
+@media screen and (max-width: 640px) {
   form .form-group-one {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 375px) {
+  input[type=text], textarea {
+    width: 15em;
   }
 }
 footer {
@@ -317,12 +321,12 @@ footer .fter-item-4 a:hover {
   text-shadow: 0px 0px 10px #FFFFFF;
 }
 
-@media (max-width: 840px) {
+@media screen and (max-width: 768px) {
   .video-wrapper img {
     margin-top: 5em;
   }
   .video-wrapper .play-circle {
-    margin-top: 3em;
+    margin-top: 4em;
   }
 }
 .grid-border {
@@ -346,7 +350,7 @@ footer .fter-item-4 a:hover {
   grid-template-rows: repeat(2, 1fr);
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 640px) {
   .img-container {
     grid-template-columns: 50% 50% !important;
     grid-template-rows: 50% 50% !important;
@@ -366,14 +370,6 @@ footer .fter-item-4 a:hover {
   .img-container .child-2 {
     grid-column-start: 2;
     grid-row-start: 2;
-  }
-}
-@media (max-width: 840px) {
-  .img-container {
-    flex-wrap: no-wrap;
-  }
-  .img-container .img-container-item {
-    flex: 0 0 auto;
   }
 }
 .btn-yellow {
@@ -412,10 +408,18 @@ footer .fter-item-4 a:hover {
   width: 100%;
 }
 
+.supporters-border {
+  margin-bottom: -2%;
+}
+.supporters-border img {
+  background-color: #FFCB66;
+  width: 100%;
+}
+
 .supporters-container {
-  padding-top: 8em;
-  padding-bottom: 6em;
-  background-repeat: repeat-x;
+  padding-top: 6em;
+  padding-bottom: 8em;
+  background-color: #FFCB66;
 }
 .supporters-container .supporters-text {
   font-family: "Oswald", sans-serif;
@@ -449,17 +453,17 @@ footer .fter-item-4 a:hover {
   font-size: 1.5rem;
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .supporters-container {
     margin-bottom: -10%;
   }
 }
-@media (max-width: 576px) {
+@media screen and (max-width: 640px) {
   .supporters-container {
     margin-bottom: -20%;
   }
 }
-@media (max-width: 528px) {
+@media screen and (max-width: 425px) {
   .supporters-container {
     margin-bottom: -30%;
   }

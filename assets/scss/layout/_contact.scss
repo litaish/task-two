@@ -1,5 +1,6 @@
 @use '../abstracts/colors';
 @use '../base/fonts';
+@use '../abstracts/mixins';
 
 .form-wrapper {
     ::placeholder {
@@ -10,8 +11,8 @@
     padding-top: 10em;
     padding-bottom: 7em;
     form {
-        padding-left: 33%;
-        padding-right: 33%;
+        margin-left: 25%;
+        margin-right: 25%;
         input[type="text"], textarea {
             padding: 0.5em;
             background-color: colors.$form;
@@ -82,11 +83,15 @@
         }
     }
 }
-// Media for forms
-@media (max-width: 528px){
+@include mixins.mob-large {
     form {
         .form-group-one {
             flex-direction: column;
         }
+    }
+}
+@include mixins.mob-small {
+    input[type="text"], textarea {
+        width: 15em;
     }
 }
