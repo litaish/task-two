@@ -558,20 +558,28 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     grid-row-start: 2;
   }
 }
-.btn-yellow {
+.btn-yellow, .btn-yellow-submit, .btn-yellow-choice {
   background-color: #FFA800;
   border: none;
   text-align: center;
   border-radius: 50px;
-  height: 50px;
-  width: 233px;
   transition: 0.3s;
 }
-.btn-yellow:hover {
+.btn-yellow:hover, .btn-yellow-submit:hover, .btn-yellow-choice:hover {
   background-color: #ffda16;
 }
-.btn-yellow:active {
+.btn-yellow:active, .btn-yellow-submit:active, .btn-yellow-choice:active {
   background-color: #ff8a00;
+}
+
+.btn-yellow-choice {
+  height: 50px;
+  width: 223px;
+}
+
+.btn-yellow-submit {
+  height: 62px;
+  width: 182px;
 }
 
 .about-panel {
