@@ -489,8 +489,8 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   justify-content: center;
   align-items: center;
   row-gap: 5em;
-  column-gap: 12em;
-  padding-top: 9em;
+  column-gap: 8em;
+  padding-top: 7em;
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -498,7 +498,7 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 2.6em;
+  row-gap: 1.9em;
   text-transform: uppercase;
   text-align: center;
 }
