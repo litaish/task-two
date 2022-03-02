@@ -1,8 +1,9 @@
 @use '../abstracts/colors';
-@use '../base/fonts';
 @use '../abstracts/mixins';
 
 footer {
+    position: relative;
+    z-index: 6;
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
@@ -57,7 +58,15 @@ footer {
            }
     }
 }
-
+.footer-border {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    img {
+        background-color: colors.$bluePane;
+        width: 100%;
+    }
+}
 // Media for footer
 @include mixins.pc-only {
     #contactName1 {

@@ -1,5 +1,4 @@
 @use '../abstracts/colors';
-@use '../base/fonts';
 @use '../abstracts/mixins';
 
 // About section
@@ -14,11 +13,8 @@
 }
 // Supporters section
 .supporters-border {
-    margin-bottom: -2%;
-    img {
-        background-color: colors.$yellowPane;
-        width: 100%;
-    }
+    width: 100%;
+    position: absolute;
 }
 .supporters-container {
     padding-top: 6em;
@@ -46,6 +42,7 @@
         align-items: center;
         row-gap: 2.6em;
         text-transform: uppercase;
+        text-align: center;
     }
 }
 // Media for home page
