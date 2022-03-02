@@ -4,9 +4,10 @@
 
 footer {
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(4, 1fr);
     background-color: colors.$bluePane;
-    padding: 0.5em 3em 0.5em 3em;
+    padding: 3em 3em 0.5em 3em;
     ul {
         list-style-type: none;
         a {
@@ -16,14 +17,37 @@ footer {
             }
         }
     }
+    .footer-item-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .footer-item-2 {
+        li {
+            padding-bottom: 1.5em;
+        }
+    }
+    .footer-item-4 {
+        display: flex;
+        flex-direction: column;
+        p, div, a {
+            text-align: right;
+        }
+    }
 }
 .privacy-policy {
+    margin-top: auto;
     text-decoration: none;
             &:hover {
                 color: colors.$whitePanel;
             }
 }
 .socials {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
     a {
         margin: 4em 0 2em 0.5em;
                 font-size: 2.25rem;
@@ -31,5 +55,86 @@ footer {
                 &:hover {
                     color: colors.$whitePanel;
            }
+    }
+}
+
+// Media for footer
+@include mixins.pc-only {
+    #contactName1 {
+        display: none;
+    }
+    #viewDetails {
+        display: none;
+    }
+    #copyrightText2 {
+        display: none;
+    }
+}
+@include mixins.tab {
+    #contactName2 {
+        display: none;
+    }
+    #contactName1 {
+        padding-bottom: 1em;
+    }
+    #viewDetails {
+        background: none;
+        border: none;
+        outline: none;
+        text-align: right;
+    }
+    #copyrightText2 {
+        display: none;
+    }
+    footer {
+        padding-bottom: 3em;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        .footer-item-1 {
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                padding-bottom: 1em;
+            }
+            img {
+                height: 150px;
+                width: 150px;
+            }
+            br {
+                display: none;
+            }
+        }
+        .footer-item-2 {
+            display: none;
+        }
+        .footer-item-3 {
+            display: none;
+        }
+        .socials {
+            a {
+                font-size: 1.563rem;
+            }
+        }
+    }
+}
+@include mixins.mob-large {
+    footer {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        .footer-item-4 {
+            p, div, a, #viewDetails {
+                text-align: left;
+            }
+        }
+        // #privacyPolicy {
+        //     display: none;
+        // }
+        #copyrightText1 {
+            display: none;
+        }
+        #copyrightText2 {
+            display: block;
+        }
     }
 }

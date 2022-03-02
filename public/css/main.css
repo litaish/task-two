@@ -100,6 +100,13 @@ body {
   color: #FFFFFF;
 }
 
+.f-mont-white18-bold {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
 .f-mont-white24 {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
@@ -118,6 +125,10 @@ body {
   }
 
   .f-mont-white18 {
+    font-size: 0.75rem;
+  }
+
+  .f-mont-white18-bold {
     font-size: 0.75rem;
   }
 
@@ -328,9 +339,10 @@ nav .toggle-btn .bar {
 }
 footer {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(4, 1fr);
   background-color: #2F4858;
-  padding: 0.5em 3em 0.5em 3em;
+  padding: 3em 3em 0.5em 3em;
 }
 footer ul {
   list-style-type: none;
@@ -341,14 +353,37 @@ footer ul a {
 footer ul a:hover {
   color: #FFFFFF;
 }
+footer .footer-item-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .footer-item-1 p {
+  margin-bottom: 0;
+}
+footer .footer-item-2 li {
+  padding-bottom: 1.5em;
+}
+footer .footer-item-4 {
+  display: flex;
+  flex-direction: column;
+}
+footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
+  text-align: right;
+}
 
 .privacy-policy {
+  margin-top: auto;
   text-decoration: none;
 }
 .privacy-policy:hover {
   color: #FFFFFF;
 }
 
+.socials {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+}
 .socials a {
   margin: 4em 0 2em 0.5em;
   font-size: 2.25rem;
@@ -358,6 +393,82 @@ footer ul a:hover {
   color: #FFFFFF;
 }
 
+@media screen and (min-width: 1024px) {
+  #contactName1 {
+    display: none;
+  }
+
+  #viewDetails {
+    display: none;
+  }
+
+  #copyrightText2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #contactName2 {
+    display: none;
+  }
+
+  #contactName1 {
+    padding-bottom: 1em;
+  }
+
+  #viewDetails {
+    background: none;
+    border: none;
+    outline: none;
+    text-align: right;
+  }
+
+  #copyrightText2 {
+    display: none;
+  }
+
+  footer {
+    padding-bottom: 3em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  footer .footer-item-1 div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 1em;
+  }
+  footer .footer-item-1 img {
+    height: 150px;
+    width: 150px;
+  }
+  footer .footer-item-1 br {
+    display: none;
+  }
+  footer .footer-item-2 {
+    display: none;
+  }
+  footer .footer-item-3 {
+    display: none;
+  }
+  footer .socials a {
+    font-size: 1.563rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  footer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a, footer .footer-item-4 #viewDetails {
+    text-align: left;
+  }
+  footer #copyrightText1 {
+    display: none;
+  }
+  footer #copyrightText2 {
+    display: block;
+  }
+}
 .video-wrapper {
   position: relative;
   z-index: 1;

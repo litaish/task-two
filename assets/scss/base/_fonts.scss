@@ -33,6 +33,7 @@ $montserrat11--size: 0.688rem;
 .f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
 .f-mont-white24 {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
 
 // Largest tablet size
@@ -47,6 +48,9 @@ $montserrat11--size: 0.688rem;
         font-size: $montserrat18--size;
     }
     .f-mont-white18 {
+        font-size: $montserrat12--size;
+    }
+    .f-mont-white18-bold {
         font-size: $montserrat12--size;
     }
     .f-mont-white14 {
