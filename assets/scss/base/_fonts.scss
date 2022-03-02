@@ -1,22 +1,70 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Oswald:wght@400;500&display=swap');
 
 $montserrat: 'Montserrat', sans-serif;
 $oswald: 'Oswald', sans-serif;
 
-$montserratNav: 1.125rem;
-$montserratAbout: 1.125rem;
-$montserratReminder: 0.875rem;
+$Oswald48--size: 3rem;
+$Oswald30--size: 1.875rem;
+$Oswald24--size: 1.5rem;
+$Oswald18--size: 1.125rem;
 
-$submitText: 1.5rem;
+$montserrat24--size: 1.5rem;
+$montserrat18--size: 1.125rem;
+$montserrat16--size: 1rem;
+$montserrat14--size: 0.875rem;
+$montserrat12--size: 0.75rem;
+$montserrat11--size: 0.688rem;
 
-$navWeight: 500;
-$aboutWeight: 400;
+// Oswald fonts
+.f1-oswald-medium {font-family: $oswald; font-size: $Oswald48--size; font-weight: 500; color: colors.$bluePane}
+.f2-oswald-medium {font-family: $oswald; font-size: $Oswald30--size; font-weight: 500; color: colors.$bluePane}
+.f3-oswald-medium {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
+.f-oswald-supporters {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
 
+// Montserrat fonts
+.f-mont-nav {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$blackText}
+.f-mont-paragraph {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 400; color: colors.$bluePane}
+.f-mont-form-input {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 400; color: colors.$bluePane}
+.f-mont-tos {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 400; color: colors.$bluePane}
+.f-mont-submit {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-white24 {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
 
-$heading1_Oswald: 3rem;
-$heading2_Oswald: 1.875rem;
-$heading3_Oswald: 1.5rem;
-
+// Largest tablet size
+@include mixins.tab {
+    .f-mont-white14 {
+        font-size: $montserrat16--size;
+    }
+}
+// Largest phone size
+@include mixins.mob-large {
+    .f-mont-white24 {
+        font-size: $montserrat18--size;
+    }
+    .f-mont-white18 {
+        font-size: $montserrat12--size;
+    }
+    .f-mont-white14 {
+        font-size: $montserrat11--size;
+    }
+    .f-mont-paragraph {
+        font-size: $montserrat12--size;
+    }
+    .f-mont-tos {
+        font-size: $montserrat12--size;
+    }
+    .f-mont-submit {
+        font-size: $montserrat18--size;
+    }
+    .f2-oswald-medium {
+        font-size: $Oswald24--size;
+    }
+}
 
 
 

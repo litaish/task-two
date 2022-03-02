@@ -14,12 +14,11 @@
         margin-left: 25%;
         margin-right: 25%;
         input[type="text"], textarea {
+            resize: none;
             padding: 0.5em;
             background-color: colors.$form;
             border: 0;
             border-radius: 6px;
-            font-family: fonts.$montserrat;
-            font-size: fonts.$montserratAbout;
             margin: 0.4em;
             &:focus {
                 outline: none;
@@ -29,19 +28,15 @@
             height: 43px;
         }
         h2 {
-            font-family: fonts.$oswald;
-            font-size: fonts.$heading2_Oswald;
-            text-transform: uppercase;
-            color: colors.$bluePane;
             text-align: center;
             padding-bottom: 1.5em;
+            text-transform: uppercase;
         }
         .form-group-one {
             display: flex;
             input {
                 flex-grow: 1;
-            }
-            
+            } 
         }
         .form-group-two {
             display: flex;
@@ -49,10 +44,6 @@
             margin-bottom: 1em;
         }
         .reminder {
-            font-family: fonts.$montserrat;
-            color: colors.$bluePane;
-            font-size: fonts.$montserratReminder;
-            font-weight: fonts.$aboutWeight;
             margin-left: 0.4em;
         }
         .checkbox-wrapper {
@@ -66,10 +57,6 @@
             }
             p {
                 flex-basis: 85%;
-                font-family: fonts.$montserrat;
-                color: colors.$bluePane;
-                font-size: fonts.$montserratReminder;
-                font-weight: fonts.$aboutWeight;
             }
         }
     }
@@ -79,7 +66,6 @@
         justify-content: center;
         input {
             width: 182px;
-            font-size: fonts.$submitText;
         }
     }
 }

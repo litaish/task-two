@@ -3,66 +3,33 @@
 @use '../abstracts/mixins';
 
 footer {
-    font-family: fonts.$montserrat;
-    color: colors.$whitePanel;
-    padding-left: 4em;
-    width: 100%;
-    padding-right: 4em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     background-color: colors.$bluePane;
-    display: flex;
-    justify-content: center;
+    padding: 0.5em 3em 0.5em 3em;
     ul {
-        list-style-type: none; 
-        padding: 0; 
-        margin: 0; 
-        li {
-            padding: 0.5em;
-        }
+        list-style-type: none;
         a {
             text-decoration: none;
-            color: colors.$whitePanel;
             &:hover {
                 color: colors.$whitePanel;
-       }
+            }
         }
     }
-    .fter-item {
-        flex-basis: 25%;
-        .fter-text-small {
-            text-decoration: none;
-            font-size: fonts.$montserratReminder;
-        } 
-    }
-    .fter-text-large {
-        font-size: fonts.$heading3_Oswald;
-    }
-    .fter-item-4 {
-        text-align: right;
-            a {
-                margin: 4em 0 2em 0.5em;
-                font-size: 2rem;
+}
+.privacy-policy {
+    text-decoration: none;
+            &:hover {
+                color: colors.$whitePanel;
+            }
+}
+.socials {
+    a {
+        margin: 4em 0 2em 0.5em;
+                font-size: 2.25rem;
                 color: colors.$whitePanel;
                 &:hover {
                     color: colors.$whitePanel;
            }
-       }
-    }
-}
-.footer-border {
-    width: 100%;
-    margin-bottom: -25%;
-    margin-top: -6%;
-}
-// Media for footer
-@media (max-width: 1000px){
-    .fter-item-2 {
-        display: none;
-    }
-    .fter-item-3 {
-        display: none;
-    }
-    footer {
-        column-gap: 7em;
-        flex-wrap: wrap;
     }
 }

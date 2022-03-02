@@ -6,6 +6,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  outline: 1px solid red;
 }
 
 body {
@@ -15,10 +16,132 @@ body {
   padding: 0;
 }
 
-nav {
+.f1-oswald-medium {
+  font-family: "Oswald", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
+.f2-oswald-medium {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
+.f3-oswald-medium {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
+.f-oswald-supporters {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
+.f-mont-nav {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
+  color: #000000;
+}
+
+.f-mont-paragraph {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #2F4858;
+}
+
+.f-mont-form-input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #2F4858;
+}
+
+.f-mont-tos {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #2F4858;
+}
+
+.f-mont-submit {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.f-mont-choice-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.f-mont-white14 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.f-mont-white18 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.f-mont-white24 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1024px) {
+  .f-mont-white14 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .f-mont-white24 {
+    font-size: 1.125rem;
+  }
+
+  .f-mont-white18 {
+    font-size: 0.75rem;
+  }
+
+  .f-mont-white14 {
+    font-size: 0.688rem;
+  }
+
+  .f-mont-paragraph {
+    font-size: 0.75rem;
+  }
+
+  .f-mont-tos {
+    font-size: 0.75rem;
+  }
+
+  .f-mont-submit {
+    font-size: 1.125rem;
+  }
+
+  .f2-oswald-medium {
+    font-size: 1.5rem;
+  }
+}
+nav {
   background-color: #FFFFFF;
   display: flex;
   justify-content: space-between;
@@ -40,7 +163,6 @@ nav .nav-links ul {
 }
 nav .nav-links ul a {
   text-decoration: none;
-  color: #000000;
   padding: 1rem;
   padding-bottom: 0.2rem;
   display: block;
@@ -49,6 +171,7 @@ nav .nav-links ul a {
 }
 nav .nav-links ul a:hover {
   border-bottom: 3px solid #FFA800;
+  color: #000000;
 }
 nav .nav-links .nav-languages {
   display: none;
@@ -139,12 +262,11 @@ nav .toggle-btn .bar {
   margin-right: 25%;
 }
 .form-wrapper form input[type=text], .form-wrapper form textarea {
+  resize: none;
   padding: 0.5em;
   background-color: #e7e7e7;
   border: 0;
   border-radius: 6px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.125rem;
   margin: 0.4em;
 }
 .form-wrapper form input[type=text]:focus, .form-wrapper form textarea:focus {
@@ -154,12 +276,9 @@ nav .toggle-btn .bar {
   height: 43px;
 }
 .form-wrapper form h2 {
-  font-family: "Oswald", sans-serif;
-  font-size: 1.875rem;
-  text-transform: uppercase;
-  color: #2F4858;
   text-align: center;
   padding-bottom: 1.5em;
+  text-transform: uppercase;
 }
 .form-wrapper form .form-group-one {
   display: flex;
@@ -173,10 +292,6 @@ nav .toggle-btn .bar {
   margin-bottom: 1em;
 }
 .form-wrapper form .reminder {
-  font-family: "Montserrat", sans-serif;
-  color: #2F4858;
-  font-size: 0.875rem;
-  font-weight: 400;
   margin-left: 0.4em;
 }
 .form-wrapper form .checkbox-wrapper {
@@ -191,10 +306,6 @@ nav .toggle-btn .bar {
 }
 .form-wrapper form .checkbox-wrapper p {
   flex-basis: 85%;
-  font-family: "Montserrat", sans-serif;
-  color: #2F4858;
-  font-size: 0.875rem;
-  font-weight: 400;
 }
 .form-wrapper .submit-wrapper {
   margin-top: 2em;
@@ -203,7 +314,6 @@ nav .toggle-btn .bar {
 }
 .form-wrapper .submit-wrapper input {
   width: 182px;
-  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 640px) {
@@ -217,72 +327,37 @@ nav .toggle-btn .bar {
   }
 }
 footer {
-  font-family: "Montserrat", sans-serif;
-  color: #FFFFFF;
-  padding-left: 4em;
-  width: 100%;
-  padding-right: 4em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   background-color: #2F4858;
-  display: flex;
-  justify-content: center;
+  padding: 0.5em 3em 0.5em 3em;
 }
 footer ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-footer ul li {
-  padding: 0.5em;
 }
 footer ul a {
   text-decoration: none;
-  color: #FFFFFF;
 }
 footer ul a:hover {
   color: #FFFFFF;
 }
-footer .fter-item {
-  flex-basis: 25%;
-}
-footer .fter-item .fter-text-small {
+
+.privacy-policy {
   text-decoration: none;
-  font-size: 0.875rem;
 }
-footer .fter-text-large {
-  font-size: 1.5rem;
+.privacy-policy:hover {
+  color: #FFFFFF;
 }
-footer .fter-item-4 {
-  text-align: right;
-}
-footer .fter-item-4 a {
+
+.socials a {
   margin: 4em 0 2em 0.5em;
-  font-size: 2rem;
+  font-size: 2.25rem;
   color: #FFFFFF;
 }
-footer .fter-item-4 a:hover {
+.socials a:hover {
   color: #FFFFFF;
 }
 
-.footer-border {
-  width: 100%;
-  margin-bottom: -25%;
-  margin-top: -6%;
-}
-
-@media (max-width: 1000px) {
-  .fter-item-2 {
-    display: none;
-  }
-
-  .fter-item-3 {
-    display: none;
-  }
-
-  footer {
-    column-gap: 7em;
-    flex-wrap: wrap;
-  }
-}
 .video-wrapper {
   position: relative;
   z-index: 1;
@@ -374,10 +449,7 @@ footer .fter-item-4 a:hover {
 }
 .btn-yellow {
   background-color: #FFA800;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.125rem;
   border: none;
-  color: #FFFFFF;
   text-align: center;
   border-radius: 50px;
   height: 50px;
@@ -395,12 +467,6 @@ footer .fter-item-4 a:hover {
   text-align: center;
   vertical-align: middle;
   padding: 10% 15% 10% 15%;
-}
-.about-panel p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: #2F4858;
 }
 
 .about-border {
@@ -422,10 +488,7 @@ footer .fter-item-4 a:hover {
   background-color: #FFCB66;
 }
 .supporters-container .supporters-text {
-  font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  color: #2F4858;
-  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -445,12 +508,7 @@ footer .fter-item-4 a:hover {
   flex-direction: column;
   align-items: center;
   row-gap: 2.6em;
-}
-.choice-panel .choice-item h3 {
-  font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  color: #2F4858;
-  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {

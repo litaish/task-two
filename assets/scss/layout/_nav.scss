@@ -3,9 +3,6 @@
 @use '../abstracts/mixins';
 
 nav {
-    font-family: fonts.$montserrat;
-    font-size: fonts.$montserratNav;
-    font-weight: fonts.$navWeight;
     background-color: colors.$whitePanel;
     display: flex;
     justify-content: space-between;
@@ -24,7 +21,6 @@ nav {
             display: flex;
             a {
                 text-decoration: none;
-                color: colors.$blackText;
                 padding: 1rem;
                 padding-bottom: 0.2rem;
                 display: block;
@@ -32,6 +28,7 @@ nav {
                 transition: 0.2s ease;
                 &:hover {
                         border-bottom: 3px solid colors.$yellowBtn;
+                        color: colors.$blackText;
                 }
             }
         }
