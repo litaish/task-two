@@ -15,8 +15,11 @@
 .supporters-border {
     width: 100%;
     position: absolute;
+    z-index: 4;
 }
 .supporters-container {
+    position: relative;
+    z-index: 1;
     padding-top: 6em;
     padding-bottom: 8em;
     background-color: colors.$yellowPane;

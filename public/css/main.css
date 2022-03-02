@@ -6,7 +6,6 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
-  outline: 1px solid red;
 }
 
 body {
@@ -203,7 +202,7 @@ nav .toggle-btn .bar {
 }
 footer {
   position: relative;
-  z-index: 6;
+  z-index: 3;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
@@ -228,7 +227,7 @@ footer .footer-item-1 p {
   margin-bottom: 0;
 }
 footer .footer-item-2 li {
-  padding-bottom: 1.5em;
+  padding-bottom: 1.3em;
 }
 footer .footer-item-4 {
   display: flex;
@@ -261,12 +260,9 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
 
 .footer-border {
   position: absolute;
-  z-index: 5;
+  z-index: 2;
   width: 100%;
-}
-.footer-border img {
-  background-color: #2F4858;
-  width: 100%;
+  margin-top: -2%;
 }
 
 @media screen and (min-width: 1024px) {
@@ -472,9 +468,12 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
 .supporters-border {
   width: 100%;
   position: absolute;
+  z-index: 4;
 }
 
 .supporters-container {
+  position: relative;
+  z-index: 1;
   padding-top: 6em;
   padding-bottom: 8em;
   background-color: #FFCB66;
