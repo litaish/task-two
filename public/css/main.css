@@ -341,6 +341,27 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     display: block;
   }
 }
+.header {
+  text-align: center;
+  padding-top: 6.5em;
+  padding-bottom: 6em;
+  vertical-align: middle;
+  padding-left: 27%;
+  padding-right: 27%;
+}
+.header h1 {
+  margin-bottom: 1.3em;
+}
+.header p {
+  line-height: 1.3em;
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+}
 .video-wrapper {
   position: relative;
   z-index: 1;
@@ -454,6 +475,29 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   width: 182px;
 }
 
+.btn-arrow, .btn-arrow-left, .btn-arrow-right {
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  transition: 0.3s;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+}
+.btn-arrow:hover, .btn-arrow-left:hover, .btn-arrow-right:hover {
+  opacity: 0.3;
+}
+
+.btn-arrow-right {
+  border-color: #2F4858;
+  transform: rotateY(0deg) rotate(45deg);
+}
+
+.btn-arrow-left {
+  border-color: #2F4858;
+  opacity: 0.5;
+  transform: rotateY(0deg) rotate(-135deg);
+}
+
 .about-panel {
   text-align: center;
   vertical-align: middle;
@@ -518,6 +562,86 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     margin-bottom: -30%;
   }
 }
+.caption-container {
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: left 70% center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: -1;
+}
+.caption-container .gradient {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  z-index: 1;
+}
+.caption-container .picture-quote-wrapper {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  bottom: 12%;
+  padding-left: 17%;
+  padding-right: 17%;
+}
+.caption-container .picture-quote-wrapper h3 {
+  line-height: 1.7em;
+}
+
+.quote-border-top {
+  position: absolute;
+  width: 100%;
+}
+
+.quote-border-bottom {
+  width: 100%;
+  position: absolute;
+  margin-top: -3%;
+}
+
+.feedback-juris-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-juris-wrapper .feedback-juris {
+  padding-top: 14em;
+  padding-bottom: 14em;
+  margin-left: 28%;
+  margin-right: 28%;
+}
+.feedback-juris-wrapper .feedback-juris .feedback-text {
+  margin-top: 1.2em;
+  line-height: 1.2em;
+}
+.feedback-juris-wrapper .quote-button-wrapper {
+  display: flex;
+  column-gap: 2em;
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 1024px) {
+  .feedback-juris-wrapper .feedback-juris {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .caption-container {
+    height: 35em;
+  }
+  .caption-container .picture-quote-wrapper {
+    bottom: 6%;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .feedback-juris-wrapper .feedback-juris {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
 .f1-oswald-medium {
   font-family: "Oswald", sans-serif;
   font-size: 3rem;
@@ -544,6 +668,13 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   font-size: 1.5rem;
   font-weight: 500;
   color: #2F4858;
+}
+
+.f-oswald-picture-quote {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 
 .f-mont-nav {
@@ -586,6 +717,14 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   font-size: 1.125rem;
   font-weight: 500;
   color: #FFFFFF;
+}
+
+.f-mont-quote-italic {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #2F4858;
+  font-style: italic;
 }
 
 .f-mont-white14 {
@@ -642,6 +781,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     font-size: 0.75rem;
   }
 
+  .f-mont-quote-italic {
+    font-size: 0.75rem;
+  }
+
   .f-mont-tos {
     font-size: 0.75rem;
   }
@@ -650,8 +793,16 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     font-size: 1.125rem;
   }
 
+  .f1-oswald-medium {
+    font-size: 2.25rem;
+  }
+
   .f2-oswald-medium {
     font-size: 1.5rem;
+  }
+
+  .f-oswald-picture-quote {
+    font-size: 1.125rem;
   }
 }
 

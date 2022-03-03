@@ -7,6 +7,7 @@ $montserrat: 'Montserrat', sans-serif;
 $oswald: 'Oswald', sans-serif;
 
 $Oswald48--size: 3rem;
+$Oswald36--size: 2.25rem;
 $Oswald30--size: 1.875rem;
 $Oswald24--size: 1.5rem;
 $Oswald18--size: 1.125rem;
@@ -23,6 +24,7 @@ $montserrat11--size: 0.688rem;
 .f2-oswald-medium {font-family: $oswald; font-size: $Oswald30--size; font-weight: 500; color: colors.$bluePane}
 .f3-oswald-medium {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
 .f-oswald-supporters {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
+.f-oswald-picture-quote {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$whitePanel}
 
 // Montserrat fonts
 .f-mont-nav {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$blackText}
@@ -31,6 +33,7 @@ $montserrat11--size: 0.688rem;
 .f-mont-tos {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 400; color: colors.$bluePane}
 .f-mont-submit {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-quote-italic {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 400; color: colors.$bluePane; font-style: italic;}
 .f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
@@ -59,14 +62,23 @@ $montserrat11--size: 0.688rem;
     .f-mont-paragraph {
         font-size: $montserrat12--size;
     }
+    .f-mont-quote-italic {
+        font-size: $montserrat12--size;
+    }
     .f-mont-tos {
         font-size: $montserrat12--size;
     }
     .f-mont-submit {
         font-size: $montserrat18--size;
     }
+    .f1-oswald-medium {
+        font-size: $Oswald36--size;
+    }
     .f2-oswald-medium {
         font-size: $Oswald24--size;
+    }
+    .f-oswald-picture-quote {
+        font-size: $Oswald18--size;
     }
 }
 

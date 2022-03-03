@@ -2,12 +2,14 @@
 @use 'layout/nav';
 @use 'layout/contact';
 @use 'layout/footer';
+@use 'layout/header';
 
 @use 'components/video';
 @use 'components/imggrid';
 @use 'components/buttons';
 
 @use 'pages/home';
+@use 'pages/idea';
 
 @use 'base/fonts';
 
