@@ -20,11 +20,21 @@
         grid-template-rows: repeat(2, 1fr);
     }
 }
+// For img container in index page
+.img-container-1 {
+    @extend .img-container;
+}
+// For img container in submit-your-dream.html page
+.img-container-2 {
+    @extend .img-container;
+}
+// Media for img grid
 @include mixins.mob-large {
     .img-container {
         grid-template-columns: 50% 50% !important;
         grid-template-rows: 50% 50% !important;
-
+    } 
+    .img-container-1 {
         .grid-split {
             grid-column-start: 1;
             grid-row-start: 1;
@@ -38,6 +48,24 @@
             grid-row-start: 2;
         }
         .child-2 {
+            grid-column-start: 2;
+            grid-row-start: 2;
+        }
+    }
+    .img-container-2 {
+        .child-2 {
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        .child-4 {
+            grid-column-start: 2;
+            grid-row-start: 1;
+        }
+        .child-1 {
+            grid-column-start: 1;
+            grid-row-start: 2;
+        }
+        .grid-split {
             grid-column-start: 2;
             grid-row-start: 2;
         }
