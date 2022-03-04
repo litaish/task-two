@@ -1,0 +1,46 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+
+// Yellow icons section
+.dream-type-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 17%;
+    padding-right: 17%;
+    margin-bottom: 9.375em;
+    .dream-type {
+        display: flex;
+        column-gap: 10%;
+        .dream-type-item {
+            text-align: center;
+            height: auto;
+            flex: 1 1 0px;
+            display: flex;
+            flex-direction: column;
+            .dream-type-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 3.75em;
+            }
+            button {
+                align-self: center;
+                margin-top: auto;
+            }
+            h2 {
+                margin-bottom: 2em;
+            }
+            p {
+                margin-bottom: 2em;
+            }
+        }
+    }
+}
+// Media queries for submit-dream
+@include mixins.tab {
+    .dream-type {
+        flex-wrap: wrap;
+        row-gap: 12.8125em;
+    }
+}

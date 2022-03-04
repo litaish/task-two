@@ -126,7 +126,7 @@ nav .toggle-btn .bar {
   display: flex;
   justify-content: center;
   padding-top: 10em;
-  padding-bottom: 7em;
+  margin-bottom: 9.375em;
 }
 .form-wrapper ::placeholder {
   color: #2F4858;
@@ -642,6 +642,48 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     margin-right: 10%;
   }
 }
+.dream-type-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 17%;
+  padding-right: 17%;
+  margin-bottom: 9.375em;
+}
+.dream-type-wrapper .dream-type {
+  display: flex;
+  column-gap: 10%;
+}
+.dream-type-wrapper .dream-type .dream-type-item {
+  text-align: center;
+  height: auto;
+  flex: 1 1 0px;
+  display: flex;
+  flex-direction: column;
+}
+.dream-type-wrapper .dream-type .dream-type-item .dream-type-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.75em;
+}
+.dream-type-wrapper .dream-type .dream-type-item button {
+  align-self: center;
+  margin-top: auto;
+}
+.dream-type-wrapper .dream-type .dream-type-item h2 {
+  margin-bottom: 2em;
+}
+.dream-type-wrapper .dream-type .dream-type-item p {
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 1024px) {
+  .dream-type {
+    flex-wrap: wrap;
+    row-gap: 12.8125em;
+  }
+}
 .f1-oswald-medium {
   font-family: "Oswald", sans-serif;
   font-size: 3rem;
@@ -727,6 +769,13 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   font-style: italic;
 }
 
+.f-mont-blue24-normal {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
 .f-mont-white14 {
   font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
@@ -763,6 +812,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
 @media screen and (max-width: 640px) {
   .f-mont-white24 {
     font-size: 1.125rem;
+  }
+
+  .f-mont-blue24-normal {
+    font-size: 0.875rem;
   }
 
   .f-mont-white18 {

@@ -34,6 +34,7 @@ $montserrat11--size: 0.688rem;
 .f-mont-submit {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-quote-italic {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 400; color: colors.$bluePane; font-style: italic;}
+.f-mont-blue24-normal {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
 .f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
@@ -49,6 +50,9 @@ $montserrat11--size: 0.688rem;
 @include mixins.mob-large {
     .f-mont-white24 {
         font-size: $montserrat18--size;
+    }
+    .f-mont-blue24-normal {
+        font-size: $montserrat14--size;
     }
     .f-mont-white18 {
         font-size: $montserrat12--size;
