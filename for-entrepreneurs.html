@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/js/theme.js" defer></script>
     <script src="./assets/js/footer.js" defer></script>
-    <script src="./assets/js/form-submit.js" defer></script>
-    <title>Sparkle</title>
+    <title>Uzņēmējiem</title>
 </head>
 <body>
     <nav>
@@ -42,55 +41,12 @@
             </ul>
         </div>
     </nav>
-    <div>
-        <img class="nav-border" src="./assets/img/borders/navbar_border.png" alt="Navigation border">
-    </div>
-    <section class="video-wrapper">
-        <img src="./assets/img/other/sparkle_video.jpg" alt="Video preview">
-        <a class="play-circle" href="#"><i class="fa fa-play fa-2x"></i></a>
-    </section>
-    <article class="about-panel">
-        <p class="f-mont-paragraph">
-            SparkleHeart ir biedrība, kas radīta, lai palīdzētu cilvēkiem piepildīt 
-            pat pārdrošākos sapņus. Šeit satiekas sapņotāji un viņu atbalstītāji - 
-            uzņēmumi, kas sniedz palīdzīgu roku, lai kopā pasauli padarītu par labāku 
-            vietu mums visiem.Mēs esam gatavi palīdzēt Tev piepildīt sapni. Kā pamats 
-            iedvesmai - tiek radīti arī 99 stāsti par Latvijas sievietēm.
+    <header class="header">
+        <h1 class="f1-oswald-medium ">UZŅĒMĒJIEM</h1>
+        <p class="f-mont-blue24-normal">
+            Ja ticat labākas pasaules attīstībai un vēlaties piedalīties starptautisku ideju realizēšanā, tad priecāsimies ar Jums iepazīties.
         </p>
-    </article>
-    <img  class="about-border" src="./assets/img/borders/about_border.png" alt="About border">
-    <div class="img-container-1">
-        <div class="child-1">
-            <img class="grid-img" src="./assets/img/img-grid/Zanda_1.jpg" alt="">
-        </div>
-        <div class="child-2">
-            <img class="grid-img" src="./assets/img/img-grid/Sibilla_4.jpg" alt="Sibilla">
-        </div>
-        <div class="grid-split">
-            <div>
-                <img class="grid-img" src="./assets/img/img-grid/Brinuma_meita-15.jpg" alt="Brinuma meita">
-            </div>
-            <div>
-                <img class="grid-img" src="./assets/img/img-grid/Alina_1 1.jpg" alt="">
-            </div>
-        </div>
-        <div class="child-4">
-            <img class="grid-img" src="./assets/img/img-grid/Anda_2 1.jpg" alt="">
-        </div>
-    </div>
-    <div>
-        <img class="grid-border" src="./assets/img/borders/grid_border.png" alt="Grid-border">
-    </div>
-    <section class="choice-panel f3-oswald-medium">
-        <div class="choice-item">
-            Vēlies piepildīt savu sapni?
-            <button class="btn-yellow-choice f-mont-choice-btn">Sapņotājiem</button>
-        </div>
-        <div class="choice-item">
-            Vēlies palīdzēt kādam piepildīt sapni?
-            <button class="btn-yellow-choice f-mont-choice-btn">Uzņēmējiem</button>
-        </div>
-    </section>
+    </header>
     <section class="form-wrapper">
         <form action="#" id="contactForm">
             <h2 class="f2-oswald-medium">Sazināties ar mums</h2>
@@ -99,6 +55,7 @@
                  <input id="emailField" class="f-mont-form-input" type="text" placeholder="E-pasts*" required>
              </div>
              <div class="form-group-two">
+                <input id="businessField" class="f-mont-form-input" type="text" placeholder="Uzņēmuma nosaukums*" required>
                  <input id="phoneField" class="f-mont-form-input" type="text" placeholder="Telefons*" required>
                  <textarea id="commentField" class="f-mont-form-input" name="comment" type="text" cols="30" rows="8" placeholder="Jautājums, vai komentārs*" required></textarea>
              </div>
@@ -116,30 +73,6 @@
                 </div>
                 </div>
          </form>
-    </section>
-    <div>
-        <img class="supporters-border" src="./assets/img/borders/nav_border.png" alt="Supporters border">
-    </div>
-    <section class="container-fluid supporters-container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h3 class="supporters-text f-oswald-supporters">Atbalstītāji</h3>
-            </div>
-        </div>
-        <div class="row align-items-center justify-content-center gy-5 pt-5 pb-5">
-            <div class="col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                <img src="./assets/img/supporters/teikums.png" alt="Teikums">
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                <img src="./assets/img/supporters/sem.png" alt="SEM">
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                <img src="./assets/img/supporters/citybee.png" alt="Citybee">
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                <img src="./assets/img/supporters/linearis.png" alt="Linearis">
-            </div>
-        </div>
     </section>
     <div>
         <img class="footer-border" src="./assets/img/borders/blue_border.png" alt="Footer border">
