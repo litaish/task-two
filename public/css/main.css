@@ -6,6 +6,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  outline: 1px solid red;
 }
 
 body {
@@ -699,6 +700,122 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     row-gap: 12.8125em;
   }
 }
+.goal-wrapper {
+  margin-top: 9.375em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goal-wrapper .goal-grid {
+  display: grid;
+  row-gap: 7.5em;
+  margin-left: 16%;
+  margin-right: 16%;
+  grid-template-rows: repeat(4, 1fr);
+}
+.goal-wrapper .goal-grid-row-one {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.goal-wrapper .goal-grid-row-one h2 {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+.goal-wrapper .goal-grid-row-two {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  column-gap: 3.875em;
+}
+.goal-wrapper .goal-grid-row-two .goal-grid-2-row-p {
+  text-align: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 1.37125em;
+}
+.goal-wrapper .goal-grid-row-two .goal-grid-img-right {
+  text-align: right;
+}
+.goal-wrapper .goal-grid-row-three {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  column-gap: 3.875em;
+}
+.goal-wrapper .goal-grid-row-three .goal-grid-3-row-p {
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 1.37125em;
+}
+
+.mission-wrapper {
+  text-align: center;
+  margin-top: 9.375em;
+  margin-bottom: 9.375em;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.mission-wrapper h2 {
+  margin-bottom: 3.125em;
+}
+
+.yellow-section-one {
+  background-color: #FFCB66;
+  padding-top: 10em;
+  padding-bottom: 5.5625em;
+  margin-bottom: 0;
+  display: flex;
+  row-gap: 2.5em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+.yellow-section-one p {
+  line-height: 1.37125em;
+}
+
+@media screen and (max-width: 1024px) {
+  .goal-wrapper .goal-grid {
+    row-gap: 6.25em;
+  }
+}
+@media screen and (max-width: 640px) {
+  .goal-wrapper .goal-grid {
+    margin-left: 7%;
+    margin-right: 7%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.75em;
+  }
+  .goal-wrapper .goal-grid .goal-grid-row-two, .goal-wrapper .goal-grid .goal-grid-row-three {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.25em;
+  }
+  .goal-wrapper .goal-grid .goal-grid-row-three {
+    flex-direction: column-reverse;
+  }
+  .goal-wrapper .goal-grid .goal-grid-2-row-p {
+    text-align: center;
+  }
+  .goal-wrapper .goal-grid .goal-grid-3-row-p {
+    text-align: center;
+  }
+  .goal-wrapper .goal-grid .goal-grid-img-right {
+    text-align: center;
+  }
+  .goal-wrapper .goal-grid figure {
+    width: 100%;
+    text-align: center;
+  }
+
+  .yellow-section-one img {
+    width: 85%;
+  }
+}
 .f1-oswald-medium {
   font-family: "Oswald", sans-serif;
   font-size: 3rem;
@@ -791,6 +908,13 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   color: #2F4858;
 }
 
+.f-mont-blue24-mission {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
 .f-mont-white14 {
   font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
@@ -839,6 +963,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   }
 }
 @media screen and (max-width: 640px) {
+  .f-mont-blue24-mission {
+    font-size: 1.125rem;
+  }
+
   .f-mont-yellow-success-large {
     font-size: 1.125rem;
   }

@@ -35,6 +35,7 @@ $montserrat11--size: 0.688rem;
 .f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-quote-italic {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 400; color: colors.$bluePane; font-style: italic;}
 .f-mont-blue24-normal {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
+.f-mont-blue24-mission {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
 .f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
@@ -50,6 +51,9 @@ $montserrat11--size: 0.688rem;
 }
 // Largest phone size
 @include mixins.mob-large {
+    .f-mont-blue24-mission {
+        font-size: $montserrat18--size;  
+    }
     .f-mont-yellow-success-large {
         font-size: $montserrat18--size;
     }
