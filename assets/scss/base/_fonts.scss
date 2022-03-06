@@ -39,6 +39,8 @@ $montserrat11--size: 0.688rem;
 .f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
 .f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
 .f-mont-white24 {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
+.f-mont-yellow-success-large {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$yellowBtn}
+.f-mont-yellow-success-small {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$yellowBtn}
 
 // Largest tablet size
 @include mixins.tab {
@@ -48,6 +50,12 @@ $montserrat11--size: 0.688rem;
 }
 // Largest phone size
 @include mixins.mob-large {
+    .f-mont-yellow-success-large {
+        font-size: $montserrat18--size;
+    }
+    .f-mont-yellow-success-small {
+        font-size: $montserrat14--size;
+    }
     .f-mont-white24 {
         font-size: $montserrat18--size;
     }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/js/theme.js" defer></script>
     <script src="./assets/js/footer.js" defer></script>
+    <script src="./assets/js/form-submit.js" defer></script>
     <title>Piesaki sapni</title>
 </head>
 <body>
@@ -99,27 +100,29 @@
         <img class="grid-border" src="./assets/img/borders/grid_border.png" alt="Grid-border">
     </div>
     <section class="form-wrapper">
-        <form action="#">
+        <form action="#" id="contactForm">
             <h2 class="f2-oswald-medium">Sazināties ar mums</h2>
              <div class="form-group-one">
-                 <input class="f-mont-form-input" type="text" placeholder="Vārds, Uzvārds*" required>
-                 <input class="f-mont-form-input" type="text" placeholder="E-pasts*" required>
+                 <input id="nameField" class="f-mont-form-input" type="text" placeholder="Vārds, Uzvārds*" required>
+                 <input id="emailField" class="f-mont-form-input" type="text" placeholder="E-pasts*" required>
              </div>
              <div class="form-group-two">
-                 <input class="f-mont-form-input" type="text" placeholder="Telefons*" required>
-                 <textarea class="f-mont-form-input" name="comment" id="" cols="30" rows="8" placeholder="Jautājums, vai komentārs*" required></textarea>
+                 <input id="phoneField" class="f-mont-form-input" type="text" placeholder="Telefons*" required>
+                 <textarea id="commentField" class="f-mont-form-input" name="comment" type="text" cols="30" rows="8" placeholder="Jautājums, vai komentārs*" required></textarea>
              </div>
-             <p class="reminder f-mont-tos">*obligāti aizpildāmie lauki</p>
-             <div class="checkbox-wrapper">
-                 <input type="checkbox" required>
-                 <p class="f-mont-tos">
-                     Piekrītu, ka mani dati tiks izmantoti likumdošanā noteiktā kārtībā 
-                     un tiks  saglabāti līdz brīdim, kamēr tas būs nepieciešams.
-                 </p>
-             </div>
-             <div class="submit-wrapper">
-                 <input class="btn-yellow-submit f-mont-submit" type="submit" value="Sūtīt">
-             </div>
+             <div id="successGroup">
+                <p class="reminder f-mont-tos">*obligāti aizpildāmie lauki</p>
+                <div class="checkbox-wrapper">
+                    <input id="checkTOS" type="checkbox" required>
+                    <p class="f-mont-tos">
+                        Piekrītu, ka mani dati tiks izmantoti likumdošanā noteiktā kārtībā 
+                        un tiks  saglabāti līdz brīdim, kamēr tas būs nepieciešams.
+                    </p>
+                </div>
+                <div class="submit-wrapper" id="submitWrapper">
+                    <button class="btn-yellow-submit f-mont-submit" type="submit" id="contactSubmit">Sūtīt</button>
+                </div>
+                </div>
          </form>
     </section>
     <div>
