@@ -65,6 +65,9 @@
     }
 }
 @include mixins.mob-large {
+    .form-wrapper {
+        margin-bottom: 7.5em;
+    }
     form {
         .form-group-one {
             flex-direction: column;

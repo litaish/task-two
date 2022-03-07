@@ -5,7 +5,10 @@
 .about-panel {
     text-align: center;
     vertical-align: middle;
-    padding: 10% 15% 10% 15%;
+    padding: 9.375em 15% 9.375em 15%;
+    p {
+        line-height: 1.37125em;
+    }
 }
 .about-border {
     position: absolute;
@@ -30,8 +33,11 @@
 }
 // Media for home page
 @include mixins.mob {
-        .supporters-container {
+    .supporters-container {
         margin-bottom: -10%;
+    }
+    .about-panel {
+        padding: 5em 10% 5em 10%;
     }
 }
 @include mixins.mob-large {

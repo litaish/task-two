@@ -6,10 +6,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
     row-gap: 5em;
     column-gap: 20%;
-    margin-top: 9.375em;
-    margin-bottom: 9.375em;
     padding-left: 13%;
     padding-right: 13%;
     .choice-item {
@@ -20,5 +20,12 @@
         row-gap: 1.9em;
         text-transform: uppercase;
         text-align: center;
+    }
+}
+// Media for choice panel
+@include mixins.mob-large {
+    .choice-panel {
+        margin-top: 120px;
+        margin-bottom: 120px; 
     }
 }

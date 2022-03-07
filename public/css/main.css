@@ -187,6 +187,10 @@ nav .toggle-btn .bar {
 }
 
 @media screen and (max-width: 640px) {
+  .form-wrapper {
+    margin-bottom: 7.5em;
+  }
+
   form .form-group-one {
     flex-direction: column;
   }
@@ -339,8 +343,8 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
 }
 .header {
   text-align: center;
-  padding-top: 6.5em;
-  padding-bottom: 6em;
+  margin-top: 7em;
+  margin-bottom: 9.375em;
   vertical-align: middle;
   padding-left: 27%;
   padding-right: 27%;
@@ -349,13 +353,15 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   margin-bottom: 1.3em;
 }
 .header p {
-  line-height: 1.3em;
+  line-height: 1.37125em;
 }
 
 @media screen and (max-width: 1024px) {
   .header {
     padding-left: 12%;
     padding-right: 12%;
+    margin-top: 3.125em;
+    margin-bottom: 5em;
   }
 }
 .video-wrapper {
@@ -540,10 +546,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
   row-gap: 5em;
   column-gap: 20%;
-  margin-top: 9.375em;
-  margin-bottom: 9.375em;
   padding-left: 13%;
   padding-right: 13%;
 }
@@ -557,10 +563,19 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   text-align: center;
 }
 
+@media screen and (max-width: 640px) {
+  .choice-panel {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+}
 .about-panel {
   text-align: center;
   vertical-align: middle;
-  padding: 10% 15% 10% 15%;
+  padding: 9.375em 15% 9.375em 15%;
+}
+.about-panel p {
+  line-height: 1.37125em;
 }
 
 .about-border {
@@ -589,6 +604,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
 @media screen and (max-width: 768px) {
   .supporters-container {
     margin-bottom: -10%;
+  }
+
+  .about-panel {
+    padding: 5em 10% 5em 10%;
   }
 }
 @media screen and (max-width: 640px) {
@@ -625,7 +644,7 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   padding-right: 17%;
 }
 .caption-container .picture-quote-wrapper h3 {
-  line-height: 1.7em;
+  line-height: 1.6675em;
 }
 
 .quote-border-top {
@@ -643,10 +662,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 9.375em;
+  margin-bottom: 9.375em;
 }
 .feedback-juris-wrapper .feedback-juris {
-  padding-top: 14em;
-  padding-bottom: 14em;
   margin-left: 28%;
   margin-right: 28%;
 }
@@ -676,6 +695,10 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     padding-right: 7%;
   }
 
+  .feedback-juris-wrapper {
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+  }
   .feedback-juris-wrapper .feedback-juris {
     margin-left: 10%;
     margin-right: 10%;
@@ -717,8 +740,20 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   margin-bottom: 2em;
 }
 
+.submit-dream-page-form {
+  margin-top: 9.375em;
+}
+
+@media screen and (max-width: 640px) {
+  .submit-dream-page-form {
+    margin-top: 7.5em;
+  }
+}
 @media screen and (max-width: 1024px) {
-  .dream-type {
+  .dream-type-wrapper {
+    margin-bottom: 7.5em;
+  }
+  .dream-type-wrapper .dream-type {
     flex-wrap: wrap;
     row-gap: 12.8125em;
   }
@@ -734,7 +769,7 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   row-gap: 7.5em;
   margin-left: 16%;
   margin-right: 16%;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: auto 1fr 1fr 1fr;
 }
 .goal-wrapper .goal-grid-row-one {
   text-align: center;
@@ -836,6 +871,15 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   }
 }
 @media screen and (max-width: 640px) {
+  .mission-wrapper {
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+  }
+
+  .dream-selection-wrapper {
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+  }
   .dream-selection-wrapper .ds-icons-wrapper {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -843,6 +887,7 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
   }
 
   .goal-wrapper .goal-grid {
+    margin-top: 0;
     margin-left: 7%;
     margin-right: 7%;
     display: flex;

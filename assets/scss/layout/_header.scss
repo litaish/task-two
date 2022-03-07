@@ -3,8 +3,8 @@
 
 .header {
     text-align: center;
-    padding-top: 6.5em;
-    padding-bottom: 6em;
+    margin-top: 7em;
+    margin-bottom: 9.375em;
     vertical-align: middle;
     padding-left: 27%;
     padding-right: 27%;
@@ -12,14 +12,15 @@
         margin-bottom: 1.3em;
     }
     p {
-        line-height: 1.3em;
+        line-height: 1.37125em;
     }
 }
-
 // Media for header
 @include mixins.tab {
     .header {
         padding-left: 12%;
         padding-right: 12%;
+        margin-top: 3.125em;
+        margin-bottom: 5em;
     }
 }
