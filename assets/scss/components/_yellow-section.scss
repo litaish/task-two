@@ -1,0 +1,28 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+
+.yellow-section-one {
+    background-color: colors.$yellowPane;
+    padding-top: 10em;
+    padding-bottom: 5.5625em;
+    margin-bottom: 0;
+    display: flex;
+    row-gap: 2.5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 6%;
+    padding-right: 6%;
+    p {
+        line-height: 1.37125em;
+    }
+}
+// Media for yellow one section
+@include mixins.mob-large {
+    .yellow-section-one {
+        img {
+            width: 85%;
+        }
+    }
+}

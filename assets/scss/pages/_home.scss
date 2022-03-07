@@ -28,26 +28,6 @@
         text-align: center;
     }
 }
-// Choice panel before contact form
-.choice-panel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    row-gap: 5em;
-    column-gap: 8em;
-    padding-top: 7em;
-    padding-left: 10%;
-    padding-right: 10%;
-    .choice-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1.9em;
-        text-transform: uppercase;
-        text-align: center;
-    }
-}
 // Media for home page
 @include mixins.mob {
         .supporters-container {
