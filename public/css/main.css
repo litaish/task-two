@@ -2051,5 +2051,50 @@ hr {
     font-size: 1.125rem;
   }
 }
+.body-404 {
+  background-color: #FFCB66;
+}
+
+.not-found-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+.not-found-info-wrapper .not-found-white {
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  color: #FFFFFF;
+}
+.not-found-info-wrapper h1 {
+  margin-bottom: 40px;
+}
+.not-found-info-wrapper h3 {
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.not-found-info-wrapper p {
+  margin-bottom: 50px;
+}
+.not-found-info-wrapper button {
+  background-color: #FFFFFF;
+}
+.not-found-info-wrapper button:hover {
+  background-color: #FFFFFF;
+}
+.not-found-info-wrapper button:active {
+  background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 640px) {
+  .not-found-info-wrapper {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

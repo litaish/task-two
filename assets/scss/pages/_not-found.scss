@@ -1,0 +1,49 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+@use '../base/fonts';
+
+.body-404 {
+    background-color: colors.$yellowPane;
+}
+.not-found-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10em;
+    margin-bottom: 10em;
+    .not-found-white {
+        font-size: 6rem;
+        font-weight: 700;
+        font-family: fonts.$oswald;
+        color: colors.$whitePanel;
+    }
+    h1 {
+        margin-bottom: 40px;
+    }
+    h3 {
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 50px;
+    }
+    button {
+        background-color: colors.$whitePanel;
+        &:hover {
+            background-color: colors.$whitePanel;
+        }
+        &:active {
+            background-color: colors.$whitePanel;
+        }
+    }
+}
+
+// Media for 404 page
+@include mixins.mob-large {
+    .not-found-info-wrapper {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
