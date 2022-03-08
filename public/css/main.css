@@ -916,6 +916,53 @@ footer .footer-item-4 p, footer .footer-item-4 div, footer .footer-item-4 a {
     text-align: center;
   }
 }
+.btn-secondary {
+  background-color: rgba(196, 196, 196, 0.4);
+  border-radius: 6px;
+  height: 43px;
+  width: 288px;
+  border: none;
+  text-align: left;
+}
+.btn-secondary i {
+  margin-left: auto;
+}
+.btn-secondary:hover {
+  background-color: rgba(196, 196, 196, 0.4);
+  color: #2F4858;
+}
+.btn-secondary:focus {
+  background-color: rgba(196, 196, 196, 0.4);
+  outline: none !important;
+  box-shadow: none;
+}
+
+.dropdown-menu {
+  width: 100%;
+  background-color: rgba(196, 196, 196, 0.4);
+}
+
+.dropdown-divider {
+  border-color: #2F4858 !important;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.caret {
+  position: absolute;
+  left: 90%;
+  top: 30%;
+}
+
+.dropdown-search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2em;
+}
+
 .f1-oswald-medium {
   font-family: "Oswald", sans-serif;
   font-size: 3rem;

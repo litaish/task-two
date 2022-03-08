@@ -1,2 +1,48 @@
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
+
+// Edits for bootstrap dropdown component
+.btn-secondary {
+    background-color: rgba(colors.$dropDown, 0.4);
+    border-radius: 6px;
+    height: 43px;
+    width: 288px;
+    border: none;
+    text-align: left;
+    i {
+        margin-left: auto;
+    }
+    &:hover {
+        background-color: rgba(colors.$dropDown, 0.4);
+        color: colors.$bluePane;
+    }
+    &:focus {
+        background-color: rgba(colors.$dropDown, 0.4);
+        outline: none !important;
+        box-shadow: none;
+    }
+}
+// Dropdown open menu
+.dropdown-menu {
+    width: 100%;
+    background-color: rgba(colors.$dropDown, 0.4);
+}
+// Dropdown line
+.dropdown-divider {
+    border-color: colors.$bluePane !important;
+}
+// Dropdown arrow
+.dropdown-toggle::after {
+    display: none;
+}
+.caret {
+    position: absolute;
+    left: 90%;
+    top: 30%;
+}
+.dropdown-search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2em;
+}
