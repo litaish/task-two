@@ -43,7 +43,7 @@
             </ul>
         </div>
     </nav>
-    <header class="header">
+    <header class="header header-supported-by">
         <h1 class="f1-oswald-medium ">SAPŅUS ATBALSTA</h1>
         <p class="f-mont-paragraph">
             Sadarbības partneri ir uzņēmumi, kuri savā preču vai pakalpojumu ikdienā ir integrējuši 
@@ -52,32 +52,20 @@
     </header>
     <section class="dropdown-search-wrapper">
         <figure>
-            <p class="f-mont-yellow-success-small">Uzņemuma atrašanas vieta</p>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle f-mont-form-input" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Izvēlies
-                  <i class="fa-solid fa-angle-down caret"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Rīga</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Jelgava</a></li>
-                  <li><a class="dropdown-item" href="#">Ogre</a></li>
-                </ul>
-              </div>
+            <label class="f-mont-yellow-success-small" for="locationName">Uzņēmuma atrašanās vieta</label>
+            <select class="form-select f-mont-paragraph" aria-label="Default select example">
+                <option value disabled selected class="select-placeholder">Izvēlies</option>
+                <option value="1">Rīga</option>
+                <option value="2">Jelgava</option>
+                <option value="3">Ogre</option>
+              </select>
         </figure>
         <figure>
-            <p class="f-mont-yellow-success-small">Uzņēmuma veids</p>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle f-mont-form-input" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Izvēlies
-                  <i class="fa-solid fa-angle-down caret"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Ēdināšana</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                </ul>
-              </div>
+            <label class="f-mont-yellow-success-small" for="locationType">Uzņēmuma veids</label>
+            <select class="form-select f-mont-paragraph" aria-label="Default select example">
+                <option value disabled selected class="select-placeholder">Izvēlies</option>
+                <option value="1">Ēdināšana</option>
+              </select>
         </figure>
     </section>
 </body>
