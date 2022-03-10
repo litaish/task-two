@@ -22,6 +22,16 @@ hr {
         padding-bottom: 0.9375em;
     }
 }
+.supporter-loc-wrapper {
+    margin-bottom: 3.75em;
+}
+// Locations display section
+.supporter-loc-wrapper {
+    display: flex;
+}
+#map {
+    height: 40.5em;
+}
 // Media for supported-by
 @include mixins.mob-large {
     .header-supported-by {

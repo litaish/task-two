@@ -1812,6 +1812,18 @@ hr {
   padding-bottom: 0.9375em;
 }
 
+.supporter-loc-wrapper {
+  margin-bottom: 3.75em;
+}
+
+.supporter-loc-wrapper {
+  display: flex;
+}
+
+#map {
+  height: 40.5em;
+}
+
 @media screen and (max-width: 640px) {
   .header-supported-by {
     margin-bottom: 5em;
