@@ -27,6 +27,11 @@ form.addEventListener('submit', (e) => {
     form.reset();
 })
 
+const selectCityEl = document.getElementById('selectCity');
+
+selectCityEl.addEventListener('change', () => {
+    console.log('changed')
+})
 
 
 

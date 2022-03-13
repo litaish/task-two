@@ -4,6 +4,8 @@
 let map;
 let service;
 let infowindow;
+let allMarkers = [];
+let allInfo = [];
 
 function findIds() {
   // Array that stores results of all places ID's
@@ -33,8 +35,6 @@ function findIds() {
 }
 
 async function findAdditionalInfo(requestedIds, callback) {
-  var allInfo = [];
-
   requestedIds.forEach(async (Id, i) => {
     // Collect information about places by place_id that is not accessible by regular query search
     let additionalRequest = {
@@ -45,7 +45,7 @@ async function findAdditionalInfo(requestedIds, callback) {
         "place_id",
         "geometry",
         "international_phone_number",
-        "type",
+        "types",
       ],
     };
 
@@ -57,8 +57,12 @@ async function findAdditionalInfo(requestedIds, callback) {
       )
     );
 
-    callback(results, status, printEverythingIntheArr, filterSmth);
+    // Pass in the iteration results (place) and status to the callback function
+    callback(results, status, getAllMarkers, filterSmth);
   });
+  setTimeout(() => {
+    handleSelectChange();
+  }, 100);
 }
 
 async function initMap() {
@@ -76,12 +80,12 @@ async function initMap() {
 
   // Wait for ID array to populate and run find additional info function
   setTimeout(async () => {
-    findAdditionalInfo(requestedIds, printTheArray);
+    findAdditionalInfo(requestedIds, handleAdditionalInfo);
   }, 1000);
 }
 
-var test = [];
-function printTheArray(place, status, callback, callback2) {
+// var allInfo = [];
+function handleAdditionalInfo(place, status, callback, callback2) {
   if (
     status === google.maps.places.PlacesServiceStatus.OK &&
     place &&
@@ -92,6 +96,12 @@ function printTheArray(place, status, callback, callback2) {
       map,
       position: place.geometry.location,
     });
+
+    // Adding all markers to array, title is used for identifying purposes
+    marker.setTitle(place.place_id);
+    allMarkers.push(marker);
+
+    // marker.setVisible(false) works
 
     // On click on marker, display information recieved from the requests
     google.maps.event.addListener(marker, "click", () => {
@@ -114,16 +124,73 @@ function printTheArray(place, status, callback, callback2) {
       infowindow.setContent(content);
       infowindow.open(map, marker);
     });
+
+    // Push iteration results in an array
+    allInfo.push([
+      place.name,
+      place.place_id,
+      place.international_phone_number,
+      place.address_components[1].long_name,
+      place.address_components[0].long_name,
+      place.address_components[3].long_name,
+      place.types,
+      marker.title,
+      status,
+    ]);
   }
 
-  test.push([place, status]);
-  callback(test);
-  callback2(test);
+  // Handle populated array here
+  callback(allInfo);
+  callback2(allInfo);
 }
 
-function printEverythingIntheArr(arr) {
-  console.log(arr);
+function getAllMarkers(allInfo) {
+  // console.log(allMarkers);
+  // console.log(allInfo);
 }
 function filterSmth(arr) {
-  console.log(arr);
+  // console.log(arr);
+}
+
+function handleSelectChange() {
+  const selectCityEl = document.getElementById("selectCity");
+  const selectTypeEl = document.getElementById("selectType");
+
+  // Object that will store selected city and type
+  let selectedFields = {
+    city: undefined,
+    type: undefined,
+  };
+
+  selectCityEl.addEventListener("change", () => {
+    // selectedFields.city = selectCityEl.value;
+    // console.log(selectedFields.city, selectedFields.type);
+    for (let i = 0; i < allMarkers.length; i++) {
+      
+      for (let j = 0; j < allInfo.length; j++) {
+        if (allMarkers[i].title == allInfo[j][1]) {
+          console.log("here");
+          if (allInfo[j][5] == selectCityEl.value) {
+            
+            allMarkers[i].setVisible(true);
+          } else {
+            allMarkers[i].setVisible(false);
+          }
+        }
+      }
+    }
+  });
+
+  selectTypeEl.addEventListener("change", () => {
+    // selectedFields.type = selectTypeEl.value;
+    // console.log(selectedFields.city, selectedFields.type);
+  });
+
+  // allMarkers[0].setVisible(false)
+}
+
+function setAllMarkersVisable() {
+  allMarkers.forEach((marker) => {
+    marker.setVisible(true);
+  });
 }
