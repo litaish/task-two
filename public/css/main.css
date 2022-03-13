@@ -1824,6 +1824,10 @@ hr {
   height: 40.5em;
 }
 
+.popup-content-container {
+  background-color: rgba(255, 203, 102, 0.4);
+}
+
 @media screen and (max-width: 640px) {
   .header-supported-by {
     margin-bottom: 5em;

@@ -32,6 +32,9 @@ hr {
 #map {
     height: 40.5em;
 }
+.popup-content-container {
+    background-color: rgba(colors.$yellowPane, 0.4);
+}
 // Media for supported-by
 @include mixins.mob-large {
     .header-supported-by {
