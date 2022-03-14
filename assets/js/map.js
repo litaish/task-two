@@ -8,14 +8,12 @@ let allMarkers = [];
 let allInfo = [];
 
 function findIds() {
-  // Array that stores results of all places ID's
   const allId = [];
 
   // Names of all supporters
   const supporters = ["KURTS coffee", "PURCH"];
 
   supporters.forEach((supporter) => {
-    // Requesting for place id by name from supporters array
     const IDrequest = {
       query: supporter,
       fields: ["place_id"],
@@ -25,7 +23,6 @@ function findIds() {
     service.findPlaceFromQuery(IDrequest, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         for (let i = 0; i < results.length; i++) {
-          // Add results to an array that contains all results of ID's
           allId.push(results[i].place_id);
         }
       }
@@ -36,7 +33,6 @@ function findIds() {
 
 async function findAdditionalInfo(requestedIds, callback) {
   requestedIds.forEach(async (Id, i) => {
-    // Collect information about places by place_id that is not accessible by regular query search
     let additionalRequest = {
       placeId: Id,
       fields: [
@@ -57,11 +53,10 @@ async function findAdditionalInfo(requestedIds, callback) {
       )
     );
 
-    // Pass in the iteration results (place) and status to the callback function
     callback(results, status, getAllMarkers, filterSmth);
   });
   setTimeout(() => {
-    handleSelectChange();
+    filterMarkers();
   }, 100);
 }
 
@@ -78,7 +73,6 @@ async function initMap() {
 
   let requestedIds = findIds();
 
-  // Wait for ID array to populate and run find additional info function
   setTimeout(async () => {
     findAdditionalInfo(requestedIds, handleAdditionalInfo);
   }, 1000);
@@ -97,15 +91,10 @@ function handleAdditionalInfo(place, status, callback, callback2) {
       position: place.geometry.location,
     });
 
-    // Adding all markers to array, title is used for identifying purposes
     marker.setTitle(place.place_id);
     allMarkers.push(marker);
 
-    // marker.setVisible(false) works
-
-    // On click on marker, display information recieved from the requests
     google.maps.event.addListener(marker, "click", () => {
-      // Pop up window displaying all information about location on map
       const content = document.createElement("div");
       const nameElement = document.createElement("h2");
 
@@ -152,45 +141,43 @@ function filterSmth(arr) {
   // console.log(arr);
 }
 
-function handleSelectChange() {
-  const selectCityEl = document.getElementById("selectCity");
-  const selectTypeEl = document.getElementById("selectType");
+function filterMarkers() {
+  selects = document.getElementsByTagName("select");
 
-  // Object that will store selected city and type
-  let selectedFields = {
-    city: undefined,
-    type: undefined,
-  };
+  let filteredMarkers;
 
-  selectCityEl.addEventListener("change", () => {
-    // selectedFields.city = selectCityEl.value;
-    // console.log(selectedFields.city, selectedFields.type);
-    for (let i = 0; i < allMarkers.length; i++) {
-      
-      for (let j = 0; j < allInfo.length; j++) {
-        if (allMarkers[i].title == allInfo[j][1]) {
-          console.log("here");
-          if (allInfo[j][5] == selectCityEl.value) {
-            
-            allMarkers[i].setVisible(true);
-          } else {
-            allMarkers[i].setVisible(false);
+  for (let i = 0; i < selects.length; i++) {
+    // Add an event listener for each select component that will trigger the filtering process
+    selects[i].addEventListener("change", () => {
+      let selectedCity = document.getElementById("selectCity").value;
+      let selectedType = document.getElementById("selectType").value;
+
+      filteredMarkers = allMarkers.filter(function (currentMarker) {
+        for (let i = 0; i < allInfo.length; i++) {
+          // Finding a match for title (place_id)
+          if (currentMarker.title == allInfo[i][1]) {
+            if (
+              allInfo[i][5] == selectedCity &&
+              allInfo[i][6].includes(selectedType)
+            ) {
+              return true;
+            }
           }
         }
+      });
+
+      console.log(filteredMarkers);
+
+      // Set markers not present in [filteredMarkers] array to invisible
+      for (let k = 0; k < allMarkers.length; k++) {
+        if (filteredMarkers.includes(allMarkers[k])) {
+          allMarkers[k].setVisible(true)
+        } else {
+          allMarkers[k].setVisible(false)
+        }
       }
-    }
-  });
 
-  selectTypeEl.addEventListener("change", () => {
-    // selectedFields.type = selectTypeEl.value;
-    // console.log(selectedFields.city, selectedFields.type);
-  });
-
-  // allMarkers[0].setVisible(false)
-}
-
-function setAllMarkersVisable() {
-  allMarkers.forEach((marker) => {
-    marker.setVisible(true);
-  });
+      
+    });
+  }
 }
