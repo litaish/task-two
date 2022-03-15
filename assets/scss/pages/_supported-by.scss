@@ -28,6 +28,28 @@ hr {
 // Locations display section
 .supporter-loc-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    table {
+        background-color: red;
+        width: 100%;
+        tr {
+            height: 7.5em;
+            text-align: center;
+            p {
+                display: inline-block;
+                margin-bottom: 0;
+            }
+        }
+        .colgroupTwo {
+            text-align: left;
+        }
+        .colgroupThree {
+            text-align: right;
+        }
+    }
 }
 #map {
     height: 40.5em;

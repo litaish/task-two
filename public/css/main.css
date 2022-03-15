@@ -1818,6 +1818,28 @@ hr {
 
 .supporter-loc-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.supporter-loc-wrapper table {
+  background-color: red;
+  width: 100%;
+}
+.supporter-loc-wrapper table tr {
+  height: 7.5em;
+  text-align: center;
+}
+.supporter-loc-wrapper table tr p {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.supporter-loc-wrapper table .colgroupTwo {
+  text-align: left;
+}
+.supporter-loc-wrapper table .colgroupThree {
+  text-align: right;
 }
 
 #map {

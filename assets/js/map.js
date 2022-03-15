@@ -7,15 +7,31 @@ let infowindow;
 let allMarkers = [];
 let allInfo = [];
 
+function initSupporters() {
+  let supportersDict = new Object();
+  supportersDict = [
+    {
+      name: "KURTS coffee",
+      img: "./assets/img/supporters-logos/kurts_coffee.png",
+    },
+
+    {
+      name: "PURCH",
+      img: "./assets/img/supporters-logos/purch_restaurant.png",
+    },
+  ];
+
+  return supportersDict;
+}
+
 function findIds() {
   const allId = [];
 
-  // Names of all supporters
-  const supporters = ["KURTS coffee", "PURCH"];
+  let supportersDict = initSupporters();
 
-  supporters.forEach((supporter) => {
+  for (let i = 0; i < supportersDict.length; i++) {
     const IDrequest = {
-      query: supporter,
+      query: supportersDict[i].name,
       fields: ["place_id"],
     };
 
@@ -27,7 +43,8 @@ function findIds() {
         }
       }
     });
-  });
+  }
+
   return allId;
 }
 
@@ -171,13 +188,68 @@ function filterMarkers() {
       // Set markers not present in [filteredMarkers] array to invisible
       for (let k = 0; k < allMarkers.length; k++) {
         if (filteredMarkers.includes(allMarkers[k])) {
-          allMarkers[k].setVisible(true)
+          allMarkers[k].setVisible(true);
         } else {
-          allMarkers[k].setVisible(false)
+          allMarkers[k].setVisible(false);
         }
       }
-
-      
+      displayMarkerInfo(filteredMarkers)
     });
+  }
+}
+
+function displayMarkerInfo(filteredMarkersArr) {
+  // Clear all table content on select change°
+  const tableContent = document.getElementById('supportersTable');
+  tableContent.innerHTML = '';
+
+
+  //   var img = new Image();
+  // img.src = "http://yourimage.jpg";
+  let supportersDict = initSupporters();
+
+  for (let i = 0; i < filteredMarkersArr.length; i++) {
+    for (let j = 0; j < allInfo.length; j++) {
+      if (filteredMarkersArr[i].title == allInfo[j][1]) {
+          
+        let locNameEl = document.createElement('p');
+        locNameEl.innerText = allInfo[j][0];
+        locNameEl.classList.toggle('f-mont-blue24-normal');
+
+        let locNumberEl = document.createElement('p');
+        locNumberEl.innerText = allInfo[j][2];
+        locNumberEl.classList.toggle('f-mont-paragraph');
+
+        let locstreetNameEl = document.createElement('p');
+        locstreetNameEl.innerText = allInfo[j][3];
+        locstreetNameEl.classList.toggle('f-mont-paragraph');
+
+        let locstreetNumberEl = document.createElement('p');
+        locstreetNumberEl.innerText = allInfo[j][4];
+        locstreetNumberEl.classList.toggle('f-mont-paragraph');
+
+        let fullStreetEl = document.createElement('div');
+        fullStreetEl.appendChild(locstreetNameEl);
+        fullStreetEl.appendChild(document.createTextNode(' '));
+        fullStreetEl.appendChild(locstreetNumberEl);
+        // fullStreetEl.style.textAlign = 'right';
+
+        
+
+        // Create empty row element
+        let row = tableContent.insertRow(i);
+
+        // Insert cells
+        let cellOne = row.insertCell(-1);
+        cellOne.appendChild(locNameEl);
+        cellOne.style.textAlign = 'left'
+
+        let cellTwo = row.insertCell(-1);
+        cellTwo.style.color
+        cellTwo.appendChild(locNumberEl);
+        cellTwo.appendChild(fullStreetEl);
+        cellTwo.style.textAlign = 'right';
+      }
+    }
   }
 }
