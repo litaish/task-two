@@ -131,16 +131,20 @@ function handleAdditionalInfo(place, status, callback, callback2) {
       infowindow.open(map, marker);
     });
 
+    let fullStreetName =
+      place.address_components[1].long_name +
+      " " +
+      place.address_components[0].long_name; //  Street name + street number
+
     // Push iteration results in an array
     allInfo.push([
       place.name,
+      marker,
       place.place_id,
       place.international_phone_number,
-      place.address_components[1].long_name,
-      place.address_components[0].long_name,
-      place.address_components[3].long_name,
+      place.address_components[3].long_name, // City
+      fullStreetName,
       place.types,
-      marker.title,
       status,
     ]);
   }
@@ -172,13 +176,11 @@ function filterMarkers() {
       filteredMarkers = allMarkers.filter(function (currentMarker) {
         for (let i = 0; i < allInfo.length; i++) {
           // Finding a match for title (place_id)
-          if (currentMarker.title == allInfo[i][1]) {
-            if (
-              allInfo[i][5] == selectedCity &&
-              allInfo[i][6].includes(selectedType)
-            ) {
-              return true;
-            }
+          if (
+            allInfo[i][4] == selectedCity &&
+            allInfo[i][6].includes(selectedType)
+          ) {
+            return true;
           }
         }
       });
@@ -186,23 +188,27 @@ function filterMarkers() {
       console.log(filteredMarkers);
 
       // Set markers not present in [filteredMarkers] array to invisible
-      for (let k = 0; k < allMarkers.length; k++) {
-        if (filteredMarkers.includes(allMarkers[k])) {
-          allMarkers[k].setVisible(true);
+      for (let k = 0; k < allInfo.length; k++) {
+        if (filteredMarkers.includes(allInfo[k][1])) {
+          allInfo[k][1].setVisible(true);
         } else {
-          allMarkers[k].setVisible(false);
+          allInfo[k][1].setVisible(false);
         }
       }
-      displayMarkerInfo(filteredMarkers)
+      displayMarkerInfo(filteredMarkers);
     });
   }
 }
 
+/*
+  Displays information about the filtered markers location (logo image,
+    name, streets, phone numbers). Information is displayed
+    in table cells.
+ */
 function displayMarkerInfo(filteredMarkersArr) {
-  // Clear all table content on select change°
-  const tableContent = document.getElementById('supportersTable');
-  tableContent.innerHTML = '';
-
+  // Clear all table content on select change
+  const tableContent = document.getElementById("supportersTable");
+  tableContent.innerHTML = "";
 
   //   var img = new Image();
   // img.src = "http://yourimage.jpg";
@@ -210,31 +216,20 @@ function displayMarkerInfo(filteredMarkersArr) {
 
   for (let i = 0; i < filteredMarkersArr.length; i++) {
     for (let j = 0; j < allInfo.length; j++) {
-      if (filteredMarkersArr[i].title == allInfo[j][1]) {
-          
-        let locNameEl = document.createElement('p');
+
+      // Finding a match between all markers and filtered markers
+      if (filteredMarkersArr[i] == allInfo[j][1]) {
+        let locNameEl = document.createElement("p");
         locNameEl.innerText = allInfo[j][0];
-        locNameEl.classList.toggle('f-mont-blue24-normal');
+        locNameEl.classList.toggle("f-mont-blue24-normal");
 
-        let locNumberEl = document.createElement('p');
-        locNumberEl.innerText = allInfo[j][2];
-        locNumberEl.classList.toggle('f-mont-paragraph');
+        let locNumberEl = document.createElement("p");
+        locNumberEl.innerText = allInfo[j][3];
+        locNumberEl.classList.toggle("f-mont-paragraph");
 
-        let locstreetNameEl = document.createElement('p');
-        locstreetNameEl.innerText = allInfo[j][3];
-        locstreetNameEl.classList.toggle('f-mont-paragraph');
-
-        let locstreetNumberEl = document.createElement('p');
-        locstreetNumberEl.innerText = allInfo[j][4];
-        locstreetNumberEl.classList.toggle('f-mont-paragraph');
-
-        let fullStreetEl = document.createElement('div');
-        fullStreetEl.appendChild(locstreetNameEl);
-        fullStreetEl.appendChild(document.createTextNode(' '));
-        fullStreetEl.appendChild(locstreetNumberEl);
-        // fullStreetEl.style.textAlign = 'right';
-
-        
+        let fullStreetEl = document.createElement('p');
+        fullStreetEl.innerText = allInfo[j][5];
+        fullStreetEl.classList.toggle("f-mont-paragraph");
 
         // Create empty row element
         let row = tableContent.insertRow(i);
@@ -242,14 +237,22 @@ function displayMarkerInfo(filteredMarkersArr) {
         // Insert cells
         let cellOne = row.insertCell(-1);
         cellOne.appendChild(locNameEl);
-        cellOne.style.textAlign = 'left'
+        cellOne.style.textAlign = "left";
 
         let cellTwo = row.insertCell(-1);
-        cellTwo.style.color
         cellTwo.appendChild(locNumberEl);
         cellTwo.appendChild(fullStreetEl);
-        cellTwo.style.textAlign = 'right';
+        cellTwo.style.textAlign = "right";
       }
     }
   }
+}
+
+/*
+  Returns an array that merges rows, if two rows with same *name* property are present.
+  Values are merged with a comma. Function displayMarkerInfo(filteredMarkersArr) requires
+  for a location to be displayed only once, if Places API returns two results for one establishment name.
+ */
+function mergeInfo() {
+  let mergedArrayInfo = [];
 }

@@ -1832,14 +1832,7 @@ hr {
   text-align: center;
 }
 .supporter-loc-wrapper table tr p {
-  display: inline-block;
   margin-bottom: 0;
-}
-.supporter-loc-wrapper table .colgroupTwo {
-  text-align: left;
-}
-.supporter-loc-wrapper table .colgroupThree {
-  text-align: right;
 }
 
 #map {
