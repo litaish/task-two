@@ -6,32 +6,36 @@ let service;
 let infowindow;
 let allMarkers = [];
 let allInfo = [];
+let counter = 0;
 
-document.addEventListener('load', async() => { 
-  var resp = await fetch(`../../../assets/json/maps-styles.json`);
-  var jsonData = resp.json();
-  // var content = jsonData[`content-you-need`]
-
-  console.log(jsonData);
-})
-
+/*
+  Function initialises objects with supporter information that cannot get 
+  retrieved by Places API.
+ */
 function initSupporters() {
   let supportersDict = new Object();
   supportersDict = [
     {
       name: "KURTS coffee",
       img: "./assets/img/supporters-logos/kurts_coffee.png",
+      email: "kurts@gmail.com",
     },
 
     {
       name: "PURCH",
       img: "./assets/img/supporters-logos/purch_restaurant.png",
+      email: "purch@gmail.com",
     },
   ];
 
   return supportersDict;
 }
 
+/*
+  Uses findPlaceFromQuery() to find place ID by passing in the
+  establishment name. Place ID is used to retrieve additional info 
+  about the place.
+ */
 function findIds() {
   const allId = [];
 
@@ -78,7 +82,8 @@ async function findAdditionalInfo(requestedIds, callback) {
       )
     );
 
-    callback(results, status, getAllMarkers, filterSmth);
+    callback(results, status, getAllMarkers, filterSmth, mapImgEmail, counter);
+    counter++;
   });
   setTimeout(() => {
     filterMarkers();
@@ -86,237 +91,235 @@ async function findAdditionalInfo(requestedIds, callback) {
 }
 
 async function initMap() {
-
-  const styledMapType = new google.maps.StyledMapType(
-    [
-      {
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#f5f5f5"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#616161"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.stroke",
-        "stylers": [
-          {
-            "color": "#f5f5f5"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative.land_parcel",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative.land_parcel",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#bdbdbd"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative.neighborhood",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#eeeeee"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels.text",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#757575"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.business",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#e5e5e5"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#9e9e9e"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road.arterial",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#757575"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#dadada"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#616161"
-          }
-        ]
-      },
-      {
-        "featureType": "road.local",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#9e9e9e"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit.line",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#e5e5e5"
-          }
-        ]
-      },
-      {
-        "featureType": "transit.station",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#eeeeee"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#c9c9c9"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#9e9e9e"
-          }
-        ]
-      }
-    ]
-  )
+  // Set generated Styling Wizard JSON for map
+  const styledMapType = new google.maps.StyledMapType([
+    {
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#f5f5f5",
+        },
+      ],
+    },
+    {
+      elementType: "labels.icon",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#616161",
+        },
+      ],
+    },
+    {
+      elementType: "labels.text.stroke",
+      stylers: [
+        {
+          color: "#f5f5f5",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#bdbdbd",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.neighborhood",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#eeeeee",
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "labels.text",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#757575",
+        },
+      ],
+    },
+    {
+      featureType: "poi.business",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#e5e5e5",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#9e9e9e",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#ffffff",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "labels.icon",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road.arterial",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#757575",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#dadada",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#616161",
+        },
+      ],
+    },
+    {
+      featureType: "road.local",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#9e9e9e",
+        },
+      ],
+    },
+    {
+      featureType: "transit",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "transit.line",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#e5e5e5",
+        },
+      ],
+    },
+    {
+      featureType: "transit.station",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#eeeeee",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#c9c9c9",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#9e9e9e",
+        },
+      ],
+    },
+  ]);
 
   const riga = new google.maps.LatLng(56.949907201814675, 24.10355411105006);
 
@@ -334,9 +337,9 @@ async function initMap() {
 
   map.mapTypes.set("styled_map", styledMapType);
   map.setMapTypeId("styled_map");
-  
+
   // Create styles for + and - buttons
-  const zoomControlDiv = document.createElement('div');
+  const zoomControlDiv = document.createElement("div");
   const zoomControl = new addZoomControl(zoomControlDiv, map);
 
   zoomControlDiv.index = 1;
@@ -349,46 +352,54 @@ async function initMap() {
   }, 1000);
 }
 
-function addZoomControl(controlDiv, map){
+function addZoomControl(controlDiv, map) {
   // Creating divs & styles for custom zoom control
 
   // Set CSS for the control wrapper
-  var controlWrapper = document.createElement('div');
-  controlWrapper.classList.toggle('control-wrapper');
+  var controlWrapper = document.createElement("div");
+  controlWrapper.classList.toggle("control-wrapper");
   // controlWrapper.style.padding = '2em';
   controlDiv.appendChild(controlWrapper);
 
   // Set CSS class for the zoomIn
-  var zoomInButton = document.createElement('div');
-  zoomInButton.classList.toggle('zoom-in-btn')
+  var zoomInButton = document.createElement("div");
+  zoomInButton.classList.toggle("zoom-in-btn");
 
   // Set zoom in button image here
-  zoomInButton.style.backgroundImage = 'url("./assets/img/google-maps/zoom_in.png")';
+  zoomInButton.style.backgroundImage =
+    'url("./assets/img/google-maps/zoom_in.png")';
   controlWrapper.appendChild(zoomInButton);
 
   // Set CSS class for the zoomOut
-  var zoomOutButton = document.createElement('div');
-  zoomOutButton.classList.toggle('zoom-out-btn')
+  var zoomOutButton = document.createElement("div");
+  zoomOutButton.classList.toggle("zoom-out-btn");
 
   // Set zoom out button image here
-  zoomOutButton.style.backgroundImage = 'url("./assets/img/google-maps/zoom_out.png")';
+  zoomOutButton.style.backgroundImage =
+    'url("./assets/img/google-maps/zoom_out.png")';
   controlWrapper.appendChild(zoomOutButton);
 
   // Setup the click event listener - zoomIn
-  google.maps.event.addDomListener(zoomInButton, 'click', function() {
+  google.maps.event.addDomListener(zoomInButton, "click", function () {
     map.setZoom(map.getZoom() + 1);
   });
 
   // Setup the click event listener - zoomOut
-  google.maps.event.addDomListener(zoomOutButton, 'click', function() {
+  google.maps.event.addDomListener(zoomOutButton, "click", function () {
     map.setZoom(map.getZoom() - 1);
-  });  
+  });
 }
 
-function handleAdditionalInfo(place, status, callback, callback2) {
-
-  const markerImgYellow = './assets/img/google-maps/marker_yellow.png';
-  const markerImgBlue = './assets/img/google-maps/marker_active.png'
+function handleAdditionalInfo(
+  place,
+  status,
+  callback,
+  callback2,
+  mapImgEmail,
+  counter
+) {
+  const markerImgYellow = "./assets/img/google-maps/marker_yellow.png";
+  const markerImgBlue = "./assets/img/google-maps/marker_active.png";
 
   if (
     status === google.maps.places.PlacesServiceStatus.OK &&
@@ -406,48 +417,123 @@ function handleAdditionalInfo(place, status, callback, callback2) {
     marker.setTitle(place.place_id);
     allMarkers.push(marker);
 
-    google.maps.event.addListener(marker, "click", () => {
-
-      const content = document.createElement("div");
-      const nameElement = document.createElement("h2");
-
-      nameElement.textContent = place.name;
-      content.appendChild(nameElement);
-
-      const placeIdElement = document.createElement("p");
-
-      placeIdElement.textContent = place.place_id;
-      content.appendChild(placeIdElement);
-
-      const placeAddressElement = document.createElement("p");
-
-      placeAddressElement.textContent = place.address_components[3].long_name;
-      content.appendChild(placeAddressElement);
-      infowindow.setContent(content);
-      infowindow.open(map, marker);
-    });
-
     let fullStreetName =
       place.address_components[1].long_name +
       " " +
       place.address_components[0].long_name; //  Street name + street number
 
-    // Push iteration results in an array
     allInfo.push([
       place.name,
       marker,
       place.place_id,
       place.international_phone_number,
-      place.address_components[3].long_name, // City
+      place.address_components[3].long_name, // City name
       fullStreetName,
       place.types,
       status,
     ]);
+
+    mapImgEmail(allInfo, counter);
+
+    google.maps.event.addListener(marker, "click", () => {
+      // Content container
+      const content = document.createElement("div");
+      content.classList.toggle("iw-content");
+
+      // Left content - logo, right content - establishment information
+      const leftContent = document.createElement("div");
+      leftContent.classList.toggle('iw-left-content');
+      const rightContent = document.createElement("div");
+      rightContent.classList.toggle('iw-right-content');
+
+      // Establishment name
+      const nameElement = document.createElement("h2");
+      nameElement.classList.toggle("f2-oswald-medium");
+      nameElement.textContent = place.name;
+      rightContent.appendChild(nameElement);
+
+      // Telephone number (international format)
+      const placePhoneNumber = document.createElement("p");
+      placePhoneNumber.textContent = place.international_phone_number;
+      placePhoneNumber.classList.toggle("f-mont-supporters-select");
+      rightContent.appendChild(placePhoneNumber);
+
+      const placeEmail = document.createElement("p");
+      placeEmail.textContent = allInfo[counter][9];
+      placeEmail.classList.toggle("f-mont-supporters-select");
+      rightContent.appendChild(placeEmail);
+
+      const imgWrapper = document.createElement("div");
+      let imgEl = new Image();
+      imgEl.src = allInfo[counter][8];
+      imgWrapper.appendChild(imgEl);
+      leftContent.append(imgWrapper);
+
+      // Full address - street name, number, city
+      let fullAddr =
+        place.address_components[1].long_name +
+        " " +
+        place.address_components[0].long_name +
+        ", " +
+        place.address_components[3].long_name;
+      const fullAddrElement = document.createElement("p");
+      fullAddrElement.textContent = fullAddr;
+      fullAddrElement.classList.toggle("f-mont-supporters-select");
+      rightContent.appendChild(fullAddrElement);
+
+      content.appendChild(leftContent);
+      content.appendChild(rightContent);
+
+      infowindow.setContent(content);
+      infowindow.open(map, marker);
+    });
+
+    // let fullStreetName =
+    //   place.address_components[1].long_name +
+    //   " " +
+    //   place.address_components[0].long_name; //  Street name + street number
+
+    // Push each response results in an array
+    // allInfo.push([
+    //   place.name,
+    //   marker,
+    //   place.place_id,
+    //   place.international_phone_number,
+    //   place.address_components[3].long_name, // City name
+    //   fullStreetName,
+    //   place.types,
+    //   status,
+    // ]);
   }
 
   // Handle populated array here
   callback(allInfo);
   callback2(allInfo);
+
+  console.log(allInfo);
+  console.log(counter);
+  // counter++;
+}
+
+/*
+  On marker click, function sets marker to an alternative image.
+  Marker returns to its original image once another marker is clicked
+ */
+function setMarkerActive(marker) {}
+
+/*
+  Function takes array [allInfo] and maps appropriate 
+  img link and email to establishment name
+ */
+function mapImgEmail(allInfo, counter) {
+  supportersD = initSupporters();
+
+  for (let j = 0; j < supportersD.length; j++) {
+    if (allInfo[counter][0] == supportersD[j].name) {
+      allInfo[counter].push(supportersD[j].img);
+      allInfo[counter].push(supportersD[j].email);
+    }
+  }
 }
 
 function getAllMarkers(allInfo) {
@@ -462,7 +548,7 @@ function filterMarkers() {
   selects = document.getElementsByTagName("select");
 
   let filteredMarkers;
-  mapLogoImg();
+  // mapLogoImg();
 
   for (let i = 0; i < selects.length; i++) {
     // Add an event listener for each select component that will trigger the filtering process
@@ -548,14 +634,14 @@ function displayMarkerInfo(filteredMarkersArr) {
   Function adds image to [allInfo] array by comparing the name in array [allInfo]
   and object name. 
  */
-function mapLogoImg() {
-  supportersD = initSupporters();
+// function mapLogoImg() {
+//   supportersD = initSupporters();
 
-  for (let i = 0; i < allInfo.length; i++) {
-    for (let j = 0; j < supportersD.length; j++) {
-      if (allInfo[i][0] == supportersD[j].name) {
-        allInfo[i].push(supportersD[j].img);
-      }
-    }
-  }
-}
+//   for (let i = 0; i < allInfo.length; i++) {
+//     for (let j = 0; j < supportersD.length; j++) {
+//       if (allInfo[i][0] == supportersD[j].name) {
+//         allInfo[i].push(supportersD[j].img);
+//       }
+//     }
+//   }
+// }

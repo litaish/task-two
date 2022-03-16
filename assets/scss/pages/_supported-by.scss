@@ -1,90 +1,146 @@
-@use '../abstracts/colors';
-@use '../abstracts/mixins';
+@use "../abstracts/colors";
+@use "../abstracts/mixins";
 
 // All form select component vanilla css changes
 hr {
-    opacity: 0.6;
-    width: 100%;
+  opacity: 0.6;
+  width: 100%;
 }
 .select-placeholder {
-    display: none;
+  display: none;
 }
 // Form select component wrapper style
 .header-supported-by {
-    margin-bottom: 5.625em;
+  margin-bottom: 5.625em;
 }
 .dropdown-search-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 2em;
-    label {
-        padding-bottom: 0.9375em;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2em;
+  label {
+    padding-bottom: 0.9375em;
+  }
 }
 .supporter-loc-wrapper {
-    margin-bottom: 3.75em;
+  margin-bottom: 3.75em;
 }
 // Locations display section
 .supporter-loc-wrapper {
-    margin-top: 9.375em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 15%;
-    padding-right: 15%;
-    table {
-        width: 100%;
-        border-collapse: separate;
-        tr {
-            height: 7.5em;
-            text-align: center;
-            p {
-                margin-bottom: 0;
-            }
-        }
-        td {
-            padding: 0 2em;
-        }
+  margin-top: 9.375em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+  table {
+    width: 100%;
+    border-collapse: separate;
+    tr {
+      height: 7.5em;
+      text-align: center;
+      p {
+        margin-bottom: 0;
+      }
     }
+    td {
+      padding: 0 2em;
+    }
+  }
 }
 #map {
-    height: 40.5em;
-    margin-bottom: -1%;
+  height: 40.5em;
+  margin-bottom: -1%;
 }
 .popup-content-container {
-    background-color: rgba(colors.$yellowPane, 0.4);
+  background-color: rgba(colors.$yellowPane, 0.4);
 }
 // Styling for + and - zoom buttons
 .control-wrapper {
-    margin-top: 40em;
-    margin-right: 5em;
-    display: flex;
-    row-gap: 42px;
-    flex-direction: column;
-    cursor: pointer;
+  margin-top: 40em;
+  margin-right: 5em;
+  display: flex;
+  row-gap: 42px;
+  flex-direction: column;
+  cursor: pointer;
 }
 .zoom-in-btn {
-    width: 57px;
-    height: 58px;
+  width: 57px;
+  height: 58px;
 }
 .zoom-out-btn {
-    width: 57px;
-    height: 58px;
+  width: 57px;
+  height: 58px;
 }
+// Styling for info window (edits for google maps generated info window classes)
+.gm-style {
+  .gm-style-iw-c {
+    background-color: rgba(colors.$yellowBtn, 0.5) !important;
+  }
+  .gm-style-iw-t {
+    &::after {
+      display: none;
+    }
+  }
+  .gm-style-iw {
+    overflow: hidden !important;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+}
+// Fix for removing scrollbars (white bars) on infowindows on Chrome
+div.gm-style-iw.gm-style-iw-c {
+  padding-right: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
+  overflow: unset !important;
+}
+// Custom styling for inner infoWindow content
+.iw-content {
+  display: flex;
+  column-gap: 3em;
+  .iw-left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .iw-right-content {
+      text-align: right;
+      padding-right: 1em;
+      h2 {
+          margin-bottom: 1.875em;
+      }
+      p {
+          margin-bottom: 0;
+      }
+  }
+}
+
 // Media for supported-by
 @include mixins.mob-large {
-    .header-supported-by {
-        margin-bottom: 5em;
-    }
-    .dropdown-search-wrapper {
-        flex-wrap: wrap;
-        row-gap: 2.5em;
-    }
-    .supporter-loc-wrapper {
-        margin-top: 5em;
-        table {
-            display: none;
+    .iw-content {
+        flex-direction: column;
+        .iw-left-content {
+            flex-direction: row;
+            div {
+                margin-left: auto;
+            }
         }
     }
+  .header-supported-by {
+    margin-bottom: 5em;
+  }
+  .dropdown-search-wrapper {
+    flex-wrap: wrap;
+    row-gap: 2.5em;
+  }
+  .supporter-loc-wrapper {
+    margin-top: 5em;
+    table {
+      display: none;
+    }
+  }
 }
