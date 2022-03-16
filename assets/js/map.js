@@ -166,6 +166,7 @@ function filterMarkers() {
   selects = document.getElementsByTagName("select");
 
   let filteredMarkers;
+  mapLogoImg()
 
   for (let i = 0; i < selects.length; i++) {
     // Add an event listener for each select component that will trigger the filtering process
@@ -186,6 +187,8 @@ function filterMarkers() {
       });
 
       console.log(filteredMarkers);
+      
+      console.log(allInfo)
 
       // Set markers not present in [filteredMarkers] array to invisible
       for (let k = 0; k < allInfo.length; k++) {
@@ -212,13 +215,21 @@ function displayMarkerInfo(filteredMarkersArr) {
 
   //   var img = new Image();
   // img.src = "http://yourimage.jpg";
-  let supportersDict = initSupporters();
+
+  // let supportersDict = initSupporters();
+  // let arr = mergeInfo();
+  // console.log(arr);
+  // console.log("above is merged");
+  // console.log(allInfo);
 
   for (let i = 0; i < filteredMarkersArr.length; i++) {
     for (let j = 0; j < allInfo.length; j++) {
-
       // Finding a match between all markers and filtered markers
       if (filteredMarkersArr[i] == allInfo[j][1]) {
+
+        let imgEl = new Image();
+        imgEl.src = allInfo[j][8];
+
         let locNameEl = document.createElement("p");
         locNameEl.innerText = allInfo[j][0];
         locNameEl.classList.toggle("f-mont-blue24-normal");
@@ -227,22 +238,25 @@ function displayMarkerInfo(filteredMarkersArr) {
         locNumberEl.innerText = allInfo[j][3];
         locNumberEl.classList.toggle("f-mont-paragraph");
 
-        let fullStreetEl = document.createElement('p');
+        let fullStreetEl = document.createElement("p");
         fullStreetEl.innerText = allInfo[j][5];
         fullStreetEl.classList.toggle("f-mont-paragraph");
 
         // Create empty row element
         let row = tableContent.insertRow(i);
 
-        // Insert cells
         let cellOne = row.insertCell(-1);
-        cellOne.appendChild(locNameEl);
-        cellOne.style.textAlign = "left";
+        cellOne.appendChild(imgEl);
 
+        // Insert cells
         let cellTwo = row.insertCell(-1);
-        cellTwo.appendChild(locNumberEl);
-        cellTwo.appendChild(fullStreetEl);
-        cellTwo.style.textAlign = "right";
+        cellTwo.appendChild(locNameEl);
+        cellTwo.style.textAlign = "left";
+
+        let cellThree = row.insertCell(-1);
+        cellThree.appendChild(locNumberEl);
+        cellThree.appendChild(fullStreetEl);
+        cellThree.style.textAlign = "right";
       }
     }
   }
@@ -253,6 +267,44 @@ function displayMarkerInfo(filteredMarkersArr) {
   Values are merged with a comma. Function displayMarkerInfo(filteredMarkersArr) requires
   for a location to be displayed only once, if Places API returns two results for one establishment name.
  */
-function mergeInfo() {
-  let mergedArrayInfo = [];
+// function mergeInfo() {
+
+//   let mergedArrayInfo = [];
+  
+//   mergedArrayInfo = allInfo.splice(0, allInfo.length - 1);
+
+//   for (let j = 0; j < mergedArrayInfo.length; j++) {
+//     for (let k = 0; k < mergedArrayInfo.length - 1; k++) {
+//       if (mergedArrayInfo[j][0] == mergedArrayInfo[k + 1][0]) {
+//         // Phone Number
+//         mergedArrayInfo[j][3] = mergedArrayInfo[j][3] + ", " + mergedArrayInfo[k + 1][3];
+//         // Street name and number
+//         mergedArrayInfo[j][5] = mergedArrayInfo[j][5] + ", " + mergedArrayInfo[k + 1][5];
+
+//         // Remove row that gets merged from array
+//         mergedArrayInfo.splice(k + 1, 1);
+
+//         return mergedArrayInfo;
+//       }
+//     }
+//   }
+// }
+
+/*
+  Function adds image to [allInfo] array by comparing the name in array [allInfo]
+  and object name. 
+ */
+function mapLogoImg() {
+
+  supportersD = initSupporters();
+
+    for (let i = 0; i < allInfo.length; i++) {
+      for (let j = 0; j < supportersD.length; j++) {
+        if (allInfo[i][0] == supportersD[j].name) {
+          allInfo[i].push(supportersD[j].img);
+        }
+      }
+      
+    }
+    
 }
