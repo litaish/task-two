@@ -60,6 +60,12 @@ function findIds() {
   return allId;
 }
 
+/*
+  Using array [allId], additional info is retrieved using
+  each ID. On each response, data containing results is passed in a callback function
+  handleAdditionalInfo() that adds retrieved info to [allInfo] array and
+  sets up markers and their infoWindows on the map.
+ */
 async function findAdditionalInfo(requestedIds, callback) {
   requestedIds.forEach(async (Id, i) => {
     let additionalRequest = {
@@ -82,14 +88,19 @@ async function findAdditionalInfo(requestedIds, callback) {
       )
     );
 
-    callback(results, status, getAllMarkers, filterSmth, mapImgEmail, counter);
+    callback(results, status, mapImgEmail, counter);
+    // Counter keeps track of request index.
     counter++;
   });
+  // Wait for all results to populate [allInfo] array to start marker filtering.
   setTimeout(() => {
     filterMarkers();
   }, 100);
 }
 
+/*
+  Map init. Setting styles.
+ */
 async function initMap() {
   // Set generated Styling Wizard JSON for map
   const styledMapType = new google.maps.StyledMapType([
@@ -345,13 +356,18 @@ async function initMap() {
   zoomControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(zoomControlDiv);
 
+  // Run function that retrieves all place ID's by passing in location name
   let requestedIds = findIds();
 
+  // Wait for [requestedIds] to populate, then start finding additional data
   setTimeout(async () => {
     findAdditionalInfo(requestedIds, handleAdditionalInfo);
   }, 1000);
 }
 
+/*
+  Default UI is disabled. Creating custom + and - zoom controls
+ */
 function addZoomControl(controlDiv, map) {
   // Creating divs & styles for custom zoom control
 
@@ -390,14 +406,11 @@ function addZoomControl(controlDiv, map) {
   });
 }
 
-function handleAdditionalInfo(
-  place,
-  status,
-  callback,
-  callback2,
-  mapImgEmail,
-  counter
-) {
+/*
+  Create markers for each retrieved location result. Add retrieved information to
+  [allInfo] array. Set up infoWindow information and styling.
+ */
+function handleAdditionalInfo(place, status, mapImgEmail, counter) {
   const markerImgYellow = "./assets/img/google-maps/marker_yellow.png";
   const markerImgBlue = "./assets/img/google-maps/marker_active.png";
 
@@ -433,18 +446,21 @@ function handleAdditionalInfo(
       status,
     ]);
 
+    // Mapping image links and email addresses according to information in [dictSupporters]
     mapImgEmail(allInfo, counter);
 
     google.maps.event.addListener(marker, "click", () => {
+      setMarkerActive(marker, allMarkers, markerImgBlue, markerImgYellow);
+
       // Content container
       const content = document.createElement("div");
       content.classList.toggle("iw-content");
 
       // Left content - logo, right content - establishment information
       const leftContent = document.createElement("div");
-      leftContent.classList.toggle('iw-left-content');
+      leftContent.classList.toggle("iw-left-content");
       const rightContent = document.createElement("div");
-      rightContent.classList.toggle('iw-right-content');
+      rightContent.classList.toggle("iw-right-content");
 
       // Establishment name
       const nameElement = document.createElement("h2");
@@ -487,39 +503,28 @@ function handleAdditionalInfo(
       infowindow.setContent(content);
       infowindow.open(map, marker);
     });
-
-    // let fullStreetName =
-    //   place.address_components[1].long_name +
-    //   " " +
-    //   place.address_components[0].long_name; //  Street name + street number
-
-    // Push each response results in an array
-    // allInfo.push([
-    //   place.name,
-    //   marker,
-    //   place.place_id,
-    //   place.international_phone_number,
-    //   place.address_components[3].long_name, // City name
-    //   fullStreetName,
-    //   place.types,
-    //   status,
-    // ]);
   }
-
-  // Handle populated array here
-  callback(allInfo);
-  callback2(allInfo);
-
-  console.log(allInfo);
-  console.log(counter);
-  // counter++;
 }
 
 /*
   On marker click, function sets marker to an alternative image.
-  Marker returns to its original image once another marker is clicked
+  Checks array [allMarkers]. If marker is selected marker, change to alt
+  image, if not, change to normal image.
  */
-function setMarkerActive(marker) {}
+function setMarkerActive(
+  selectedMarker,
+  allMarkers,
+  activeMarkerImg,
+  normalMarkerImg
+) {
+  allMarkers.forEach((marker) => {
+    if (marker == selectedMarker) {
+      marker.setIcon(activeMarkerImg);
+    } else {
+      marker.setIcon(normalMarkerImg);
+    }
+  });
+}
 
 /*
   Function takes array [allInfo] and maps appropriate 
@@ -536,19 +541,14 @@ function mapImgEmail(allInfo, counter) {
   }
 }
 
-function getAllMarkers(allInfo) {
-  // console.log(allMarkers);
-  // console.log(allInfo);
-}
-function filterSmth(arr) {
-  // console.log(arr);
-}
-
+/*
+  Filter markers on map by select component criteria (city and type).
+  Information in [allInfo] array is compared to select component value.
+ */
 function filterMarkers() {
   selects = document.getElementsByTagName("select");
 
   let filteredMarkers;
-  // mapLogoImg();
 
   for (let i = 0; i < selects.length; i++) {
     // Add an event listener for each select component that will trigger the filtering process
@@ -629,19 +629,3 @@ function displayMarkerInfo(filteredMarkersArr) {
     }
   }
 }
-
-/*
-  Function adds image to [allInfo] array by comparing the name in array [allInfo]
-  and object name. 
- */
-// function mapLogoImg() {
-//   supportersD = initSupporters();
-
-//   for (let i = 0; i < allInfo.length; i++) {
-//     for (let j = 0; j < supportersD.length; j++) {
-//       if (allInfo[i][0] == supportersD[j].name) {
-//         allInfo[i].push(supportersD[j].img);
-//       }
-//     }
-//   }
-// }
