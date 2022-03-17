@@ -2245,5 +2245,13 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   right: 15px;
   bottom: -10px;
 }
+.stories-grid .story-card .card-inner-text {
+  color: red;
+  position: absolute;
+  z-index: 6666;
+}
+.stories-grid .story-card-inactive {
+  background-color: #FFA800;
+}
 
 /*# sourceMappingURL=main.css.map */

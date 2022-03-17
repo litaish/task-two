@@ -23,7 +23,8 @@
     "id": 5,
     "video": true,
     "thumbnail": "thumbnailsrc",
-    "active": true
+    "active": true,
+    "altText": "Arta Balode"
   },
   {
     "id": 6,
@@ -88,7 +89,8 @@
   {
     "id": 18,
     "video": false,
-    "active": false
+    "active": false,
+    "tbaText": "Jauns stāsts tiks pievienots drīzumā"
   },
   {
     "id": 19,

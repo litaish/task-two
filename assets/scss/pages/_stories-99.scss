@@ -16,5 +16,13 @@
           right: 15px;
           bottom: -10px;
         }
+        .card-inner-text {
+            color: red;
+            position: absolute;
+            z-index: 6666;
+        }
       }
+    .story-card-inactive {
+        background-color: colors.$yellowBtn;
+    }
 }
