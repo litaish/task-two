@@ -1,0 +1,20 @@
+@use "../abstracts/colors";
+@use "../abstracts/mixins";
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 10em);
+    grid-auto-rows: 10em;
+    gap: 14px;
+    .story-card {
+        min-height: 10em;
+        min-width: 10em;
+        position: relative;
+        cursor: pointer;
+        span {
+          position: absolute;
+          right: 15px;
+          bottom: -10px;
+        }
+      }
+}

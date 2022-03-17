@@ -1971,6 +1971,13 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   color: #FFFFFF;
 }
 
+.f-oswald-card-number {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
 .f-mont-nav {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
@@ -2220,6 +2227,23 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
     margin-left: 5%;
     margin-right: 5%;
   }
+}
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 10em);
+  grid-auto-rows: 10em;
+  gap: 14px;
+}
+.stories-grid .story-card {
+  min-height: 10em;
+  min-width: 10em;
+  position: relative;
+  cursor: pointer;
+}
+.stories-grid .story-card span {
+  position: absolute;
+  right: 15px;
+  bottom: -10px;
 }
 
 /*# sourceMappingURL=main.css.map */
