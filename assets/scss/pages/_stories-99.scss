@@ -10,18 +10,18 @@
         min-height: 10em;
         min-width: 10em;
         position: relative;
-        cursor: pointer;
         span {
           position: absolute;
           right: 15px;
           bottom: -10px;
         }
         .card-inner-text {
-            color: red;
             position: absolute;
-            z-index: 6666;
         }
       }
+    .story-card-active {
+        cursor: pointer;
+    }
     .story-card-inactive {
         background-color: colors.$yellowBtn;
     }

@@ -1978,6 +1978,20 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   color: #FFFFFF;
 }
 
+.f-oswald-tba-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.f-oswald-alt-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
 .f-mont-nav {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
@@ -2238,7 +2252,6 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   min-height: 10em;
   min-width: 10em;
   position: relative;
-  cursor: pointer;
 }
 .stories-grid .story-card span {
   position: absolute;
@@ -2246,9 +2259,10 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   bottom: -10px;
 }
 .stories-grid .story-card .card-inner-text {
-  color: red;
   position: absolute;
-  z-index: 6666;
+}
+.stories-grid .story-card-active {
+  cursor: pointer;
 }
 .stories-grid .story-card-inactive {
   background-color: #FFA800;
