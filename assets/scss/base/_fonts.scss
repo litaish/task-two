@@ -19,100 +19,114 @@ $montserrat14--size: 0.875rem;
 $montserrat12--size: 0.75rem;
 $montserrat11--size: 0.688rem;
 
+$font48--size: 3rem;
+$font36--size: 2.25rem;
+$font30--size: 1.875rem;
+$font24--size: 1.5rem;
+$font18--size: 1.125rem;
+$font16--size: 1rem;
+$font14--size: 0.875rem;
+$font12--size: 0.75rem;
+$font11--size: 0.688rem;
+
+$font-normal--weight: 500;
+$font-light--weight: 400;
+$font-bold--weight: 700;
+
 // Oswald fonts
-.f1-oswald-medium {font-family: $oswald; font-size: $Oswald48--size; font-weight: 500; color: colors.$bluePane}
-.f2-oswald-medium {font-family: $oswald; font-size: $Oswald30--size; font-weight: 500; color: colors.$bluePane}
-.f3-oswald-medium {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
-.f-oswald-supporters {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$bluePane}
-.f-oswald-picture-quote {font-family: $oswald; font-size: $Oswald24--size; font-weight: 500; color: colors.$whitePanel}
-.f-oswald-card-number {font-family: $oswald; font-size: $Oswald36--size; font-weight: 700; color: colors.$whitePanel}
-.f-oswald-tba-text {font-family: $oswald; font-size: $Oswald18--size; font-weight: 700; color: colors.$whitePanel}
-.f-oswald-alt-text {font-family: $oswald; font-size: $Oswald24--size; font-weight: 700; color: colors.$whitePanel}
+.f1-oswald-medium {font-family: $oswald; font-size: $font48--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f2-oswald-medium {font-family: $oswald; font-size: $font30--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f3-oswald-medium {font-family: $oswald; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f-oswald-supporters {font-family: $oswald; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f-oswald-picture-quote {font-family: $oswald; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-oswald-card-number {font-family: $oswald; font-size: $font36--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
+.f-oswald-tba-text {font-family: $oswald; font-size: $font18--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
+.f-oswald-alt-text {font-family: $oswald; font-size: $font24--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
 
 // Montserrat fonts
-.f-mont-nav {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$blackText}
-.f-mont-paragraph {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 400; color: colors.$bluePane}
-.f-mont-form-input {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 400; color: colors.$bluePane}
-.f-mont-tos {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 400; color: colors.$bluePane}
-.f-mont-submit {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
-.f-mont-supporters-select {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 400; color: colors.$bluePane}
-.f-mont-choice-btn {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
-.f-mont-quote-italic {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 400; color: colors.$bluePane; font-style: italic;}
-.f-mont-blue24-normal {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
-.f-mont-blue24-mission {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
-.f-mont-blue24-dream-selection {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$bluePane}
-.f-mont-white14 {font-family: $montserrat; font-size: $montserrat14--size; font-weight: 500; color: colors.$whitePanel}
-.f-mont-white18 {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$whitePanel}
-.f-mont-white18-bold {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$whitePanel}
-.f-mont-dropdown-first {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 700; color: colors.$bluePane}
-.f-mont-white24 {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$whitePanel}
-.f-mont-yellow-success-large {font-family: $montserrat; font-size: $montserrat24--size; font-weight: 500; color: colors.$yellowBtn}
-.f-mont-yellow-success-small {font-family: $montserrat; font-size: $montserrat18--size; font-weight: 500; color: colors.$yellowBtn}
+.f-mont-nav {font-family: $montserrat; font-size: $font18--size; font-weight: $font-normal--weight; color: colors.$blackText}
+.f-mont-paragraph {font-family: $montserrat; font-size: $font18--size; font-weight: $font-light--weight; color: colors.$bluePane}
+.f-mont-form-input {font-family: $montserrat; font-size: $font18--size; font-weight: $font-light--weight; color: colors.$bluePane}
+.f-mont-tos {font-family: $montserrat; font-size: $font14--size; font-weight: $font-light--weight; color: colors.$bluePane}
+.f-mont-submit {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-mont-supporters-select {font-family: $montserrat; font-size: $font18--size; font-weight: $font-light--weight; color: colors.$bluePane}
+.f-mont-choice-btn {font-family: $montserrat; font-size: $font18--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-mont-quote-italic {font-family: $montserrat; font-size: $font24--size; font-weight: $font-light--weight; color: colors.$bluePane; font-style: italic;}
+.f-mont-blue24-normal {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f-mont-blue24-mission {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f-mont-blue24-dream-selection {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$bluePane}
+.f-mont-white14 {font-family: $montserrat; font-size: $font14--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-mont-white18 {font-family: $montserrat; font-size: $font18--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-mont-white18-bold {font-family: $montserrat; font-size: $font18--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
+.f-mont-dropdown-first {font-family: $montserrat; font-size: $font18--size; font-weight: $font-bold--weight; color: colors.$bluePane}
+.f-mont-white24 {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-mont-yellow-success-large {font-family: $montserrat; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$yellowBtn}
+.f-mont-yellow-success-small {font-family: $montserrat; font-size: $font18--size; font-weight: $font-normal--weight; color: colors.$yellowBtn}
 
 // Largest tablet size
 @include mixins.tab {
     .f-mont-white14 {
-        font-size: $montserrat16--size;
+        font-size: $font16--size;
     }
     .f-mont-blue24-dream-selection {
-        font-size: $montserrat18--size;
+        font-size: $font18--size;
     }
 }
 // Largest phone size
 @include mixins.mob-large {
     .f-oswald-tba-text {
-        font-size: $montserrat14--size;
+        font-size: $font14--size;
     }
     .f-mont-supporters-select {
-        font-size: montserrat14--size;
+        font-size: $font14--size;
     }
     .f-mont-dropdown-first {
-        font-size: $montserrat14--size;
+        font-size: $font14--size;
     }
     .f-mont-blue24-mission {
-        font-size: $montserrat18--size;  
+        font-size: $font18--size;  
     }
     .f-mont-yellow-success-large {
-        font-size: $montserrat18--size;
+        font-size: $font18--size;
     }
     .f-mont-yellow-success-small {
-        font-size: $montserrat14--size;
+        font-size: $font14--size;
     }
     .f-mont-white24 {
-        font-size: $montserrat18--size;
+        font-size: $font18--size;
     }
     .f-mont-blue24-normal {
-        font-size: $montserrat14--size;
+        font-size: $font14--size;
     }
     .f-mont-white18 {
-        font-size: $montserrat12--size;
+        font-size: $font12--size;
     }
     .f-mont-white18-bold {
-        font-size: $montserrat12--size;
+        font-size: $font12--size;
     }
     .f-mont-white14 {
-        font-size: $montserrat11--size;
+        font-size: $font11--size;
     }
     .f-mont-paragraph {
-        font-size: $montserrat12--size;
+        font-size: $font12--size;
     }
     .f-mont-quote-italic {
-        font-size: $montserrat12--size;
+        font-size: $font12--size;
     }
     .f-mont-tos {
-        font-size: $montserrat12--size;
+        font-size: $font12--size;
     }
     .f-mont-submit {
-        font-size: $montserrat18--size;
+        font-size: $font18--size;
     }
     .f1-oswald-medium {
-        font-size: $Oswald36--size;
+        font-size: $font36--size;
     }
     .f2-oswald-medium {
-        font-size: $Oswald24--size;
+        font-size: $font24--size;
     }
     .f-oswald-picture-quote {
-        font-size: $Oswald18--size;
+        font-size: $font18--size;
     }
 }
 
