@@ -1,28 +1,85 @@
 @use "../abstracts/colors";
 @use "../abstracts/mixins";
 
-.stories-grid {
+$pc-card--size: 10em;
+$tab-card--size: 142px;
+$mob-card--size: 134px;
+
+.stories-grid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .stories-grid {
     display: grid;
-    grid-template-columns: repeat(6, 10em);
-    grid-auto-rows: 10em;
+    grid-template-columns: repeat(6, $pc-card--size);
+    grid-auto-rows: $pc-card--size;
     gap: 14px;
     .story-card {
-        min-height: 10em;
-        min-width: 10em;
-        position: relative;
-        span {
-          position: absolute;
-          right: 15px;
-          bottom: -10px;
-        }
-        .card-inner-text {
-            position: absolute;
-        }
+      height: $pc-card--size;
+      width: $pc-card--size;
+      position: relative;
+      span {
+        position: absolute;
+        right: 15px;
+        bottom: -10px;
       }
+      .card-inner-text {
+        position: absolute;
+        z-index: 3;
+        top: 60px;
+        text-align: center;
+      }
+      .card-alt-text {
+          left: 25px;
+      }
+    }
     .story-card-active {
-        cursor: pointer;
+      cursor: pointer;
+    }
+    .card-active-alt {
+      background-color: colors.$yellowBtn;
     }
     .story-card-inactive {
-        background-color: colors.$yellowBtn;
+      background-color: colors.$yellowBtn;
     }
+  }
+}
+// Media queries for cards
+@include mixins.tab {
+  .stories-grid-wrapper {
+    .stories-grid {
+      grid-template-columns: repeat(4, $tab-card--size);
+      grid-auto-rows: $tab-card--size;
+      .story-card {
+        height: $tab-card--size;
+        width: $tab-card--size;
+        img {
+          height: $tab-card--size;
+          width: $tab-card--size;
+        }
+        .card-alt-text {
+            left: 14px;
+        }
+      }
+    }
+  }
+}
+@include mixins.mob-large {
+  .stories-grid-wrapper {
+    .stories-grid {
+      grid-template-columns: repeat(2, $mob-card--size);
+      grid-auto-rows: $mob-card--size;
+      .story-card {
+        height: $mob-card--size;
+        width: $mob-card--size;
+        .card-inner-text {
+            top: 45px;
+        }
+        img {
+          height: $mob-card--size;
+          width: $mob-card--size;
+        }
+      }
+    }
+  }
 }

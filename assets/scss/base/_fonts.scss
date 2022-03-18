@@ -60,6 +60,9 @@ $montserrat11--size: 0.688rem;
 }
 // Largest phone size
 @include mixins.mob-large {
+    .f-oswald-tba-text {
+        font-size: $montserrat14--size;
+    }
     .f-mont-supporters-select {
         font-size: montserrat14--size;
     }

@@ -1,5 +1,3 @@
-// https://litaish.github.io/task-two/assets/json/cards.json
-
 // Create an instance of XMLHttpRequest()
 let cardsRequest = new XMLHttpRequest();
 
@@ -32,7 +30,7 @@ function renderCards(data) {
         card = document.createElement("figure");
         let cardId = `card-${element["id"]}`;
         card.setAttribute("id", cardId);
-        card.className = "story-card story-card-active";
+        card.className = "story-card story-card-active card-active-alt";
 
         img = document.createElement("img");
         img.className = "card-yellow-overlay";
@@ -40,7 +38,7 @@ function renderCards(data) {
         card.appendChild(img);
 
         altText = document.createElement("h2");
-        altText.className = "card-inner-text f-oswald-alt-text";
+        altText.className = "card-inner-text f-oswald-alt-text card-alt-text";
         altText.innerText = `${element["altText"]}`;
         card.appendChild(altText);
 
@@ -49,7 +47,7 @@ function renderCards(data) {
         numberSpan.innerText = `${element["id"]}`;
         card.appendChild(numberSpan);
       }
-      // If element has no altext but has image
+      // If element has no alt text but has image
       else {
         card = document.createElement("figure");
         card.style.backgroundImage = `url(./assets/img/stories/${element["id"]}.png)`;
@@ -70,20 +68,18 @@ function renderCards(data) {
 
       container.appendChild(card);
 
-      // Set event listener for element with video attribute true
+      // If element has video attribute available, make it run event
       if (element["video"]) {
+        img.classList.toggle("video-active");
 
-        //   handleVideoOpen(videoEl, element);
         container.addEventListener("click", (e) => {
-          if (e.target.classList.contains("card-yellow-overlay")) {
-
-            handleVideoOpen(e, element)
-            
+          if (e.target.classList.contains("video-active")) {
+            handleVideoOpen(e.target, element);
           }
         });
       }
     } else {
-      // If element is inactive and has to be announced text
+      // If element is inactive and has tba text
       if (element["tbaText"]) {
         content = `
             <figure id="card-${element["id"]}" class="story-card story-card-inactive">
@@ -92,6 +88,7 @@ function renderCards(data) {
                 <span class="f-oswald-card-number">${element["id"]}</span>
             </figure> 
             `;
+      // If element is inactive but has no tba text
       } else {
         content = `
             <figure id="card-${element["id"]}" class="story-card story-card-inactive">
@@ -107,6 +104,7 @@ function renderCards(data) {
 }
 
 function handleVideoOpen(targetElement, element) {
+  // Run video window popup code here
   console.log(targetElement);
-  console.log(element)
+  console.log(element);
 }
