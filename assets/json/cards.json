@@ -21,8 +21,8 @@
   },
   {
     "id": 5,
-    "video": "./assets/img/yt-thumbnails/Arta_Balode.jpg",
-    "thumbnail": "thumbnailsrc",
+    "video": "https://www.youtube.com/watch?v=1PalAURGxtM",
+    "thumbnail": "./assets/img/yt-thumbnails/Arta_Balode.jpg",
     "active": true,
     "altText": "Arta Balode"
   },
