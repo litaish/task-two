@@ -21,7 +21,7 @@
   },
   {
     "id": 5,
-    "video": true,
+    "video": "./assets/img/yt-thumbnails/Arta_Balode.jpg",
     "thumbnail": "thumbnailsrc",
     "active": true,
     "altText": "Arta Balode"

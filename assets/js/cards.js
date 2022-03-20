@@ -1,3 +1,6 @@
+const SCREEN_WIDTH_TAB = 1024;
+const SCREEN_WIDTH_MOB = 768;
+
 // Create an instance of XMLHttpRequest()
 let cardsRequest = new XMLHttpRequest();
 
@@ -11,12 +14,19 @@ cardsRequest.open(
 cardsRequest.onload = function () {
   // Store recieved data ina variable
   let cardsData = JSON.parse(cardsRequest.responseText);
+  // Count number of JSON objects
+  let numOfEntries = cardsData.length;
+
   renderCards(cardsData);
+  toggleLoadMore(numOfEntries);
 };
 
 // Send request
 cardsRequest.send();
 
+/*
+  Render cards on stories grid based on retrieved JSON data.
+ */
 function renderCards(data) {
   const container = document.getElementById("storiesGrid");
 
@@ -88,7 +98,7 @@ function renderCards(data) {
                 <span class="f-oswald-card-number">${element["id"]}</span>
             </figure> 
             `;
-      // If element is inactive but has no tba text
+        // If element is inactive but has no tba text
       } else {
         content = `
             <figure id="card-${element["id"]}" class="story-card story-card-inactive">
@@ -103,8 +113,73 @@ function renderCards(data) {
   });
 }
 
+/*
+  Opens up a youtube video popup 
+ */
 function handleVideoOpen(targetElement, element) {
-  // Run video window popup code here
   console.log(targetElement);
   console.log(element);
+  const videoContainer = document.createElement('div');
+  videoContainer.classList.add('video-popup-wrapper');
+  document.body.appendChild(videoContainer)
+  
+  videoContainer.innerHTML = `
+    <video class="story-video" src="${element["video"]}"></video>
+  `;
 }
+
+/*
+  Add a "load more" feature in tablet and phone widths
+  for stories grid.
+ */
+function toggleLoadMore(numOfCards) {
+  const storiesGridWrapper = document.getElementById("storiesGridWrapper");
+
+  // If screen is tablet size and smaller
+  if (window.matchMedia(`(max-width: ${SCREEN_WIDTH_TAB}px)`).matches) {
+    // Add a load more button (below grid)
+    const loadMoreBtn = document.createElement("button");
+    loadMoreBtn.classList.add(
+      "load-more-btn",
+      "btn-yellow-choice",
+      "f-mont-choice-btn"
+    );
+    loadMoreBtn.innerText = "Skatīt vairāk";
+    storiesGridWrapper.appendChild(loadMoreBtn);
+
+    // Card number from which to start hiding cards
+    let start = 21;
+    hideCards(start, numOfCards);
+
+    // Keeps track if cards are hidden or not
+    let hidden = true;
+
+    // Hide all cards starting from a specific number on button click
+    loadMoreBtn.addEventListener("click", () => {
+      if (!hidden) {
+        hideCards(start, numOfCards);
+        hidden = true;
+        loadMoreBtn.innerText = "Skatīt vairāk";
+      } else {
+        showCards(start, numOfCards);
+        hidden = false;
+        loadMoreBtn.innerText = "Skatīt mazāk";
+      }
+    });
+  }
+}
+
+function hideCards(start, totalNumOfCards) {
+  for (let i = start; i <= totalNumOfCards; i++) {
+    let cardEl = document.getElementById(`card-${i}`);
+    cardEl.style.display = "none";
+  }
+}
+
+function showCards(start, totalNumOfCards) {
+  for (let i = start; i <= totalNumOfCards; i++) {
+    let cardEl = document.getElementById(`card-${i}`);
+    cardEl.style.display = "inline-block";
+  }
+}
+

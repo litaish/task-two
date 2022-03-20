@@ -5,8 +5,10 @@ $pc-card--size: 10em;
 $tab-card--size: 142px;
 $mob-card--size: 134px;
 
+// Styles for generated cards
 .stories-grid-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   .stories-grid {
@@ -30,7 +32,7 @@ $mob-card--size: 134px;
         text-align: center;
       }
       .card-alt-text {
-          left: 25px;
+        left: 25px;
       }
     }
     .story-card-active {
@@ -43,8 +45,78 @@ $mob-card--size: 134px;
       background-color: colors.$yellowBtn;
     }
   }
+  .load-more-btn {
+    margin-top: 3.125em;
+  }
 }
-// Media queries for cards
+// Styles for team 
+.team-wrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9.375em;
+  margin-bottom: 9.375em;
+  text-align: center;
+  h2 {
+    margin-bottom: 1.875em;
+  }
+  p {
+    margin-bottom: 3.75em;
+  }
+  .team-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5em;
+    .team-card {
+      height: 365px;
+      width: 289px;
+      text-align: center;
+      position: relative;
+      figcaption {
+        position: absolute;
+        width: 100%;
+        bottom: 20px;
+        text-align: center;
+        .team-card-title {
+          margin-bottom: 0;
+        }
+        .team-card-desc {
+          margin-bottom: 0;
+        }
+      }
+      img {
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+      }
+    }
+  }
+}
+// Styles for video popup (when card is clicked)
+.video-popup-wrapper {
+  background-color: rgba(colors.$bluePane, 0.9);
+  position: absolute;
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.story-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9001;
+  width: 100%;
+  height: 100%;
+}
+// Media queries for stories page
 @include mixins.tab {
   .stories-grid-wrapper {
     .stories-grid {
@@ -58,9 +130,17 @@ $mob-card--size: 134px;
           width: $tab-card--size;
         }
         .card-alt-text {
-            left: 14px;
+          left: 14px;
         }
       }
+    }
+  }
+  .team-cards-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+    row-gap: 2.8125em;
+    .team-card {
+      height: 352px;
+      width: 289px;
     }
   }
 }
@@ -73,12 +153,25 @@ $mob-card--size: 134px;
         height: $mob-card--size;
         width: $mob-card--size;
         .card-inner-text {
-            top: 45px;
+          top: 45px;
         }
         img {
           height: $mob-card--size;
           width: $mob-card--size;
         }
+      }
+    }
+  }
+  .team-wrapper {
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+    p {
+      margin-bottom: 5em;
+    }
+    .team-cards-wrapper {
+      .team-card {
+        height: 354px;
+        width: 280px;
       }
     }
   }

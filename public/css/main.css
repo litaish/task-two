@@ -1992,6 +1992,13 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   color: #FFFFFF;
 }
 
+.f-oswald-team-card-name {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
 .f-mont-nav {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
@@ -2119,6 +2126,20 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   color: #FFA800;
 }
 
+.f-mont-blue18-team {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #2F4858;
+}
+
+.f-mont-white18-team-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
 @media screen and (max-width: 1024px) {
   .f-mont-white14 {
     font-size: 1rem;
@@ -2129,6 +2150,18 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   }
 }
 @media screen and (max-width: 640px) {
+  .f-mont-white18-team-desc {
+    font-size: 0.875rem;
+  }
+
+  .f-oswald-team-card-name {
+    font-size: 1.125rem;
+  }
+
+  .f-mont-blue18-team {
+    font-size: 0.875rem;
+  }
+
   .f-oswald-tba-text {
     font-size: 0.875rem;
   }
@@ -2248,6 +2281,7 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
 }
 .stories-grid-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -2285,6 +2319,77 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
 .stories-grid-wrapper .stories-grid .story-card-inactive {
   background-color: #FFA800;
 }
+.stories-grid-wrapper .load-more-btn {
+  margin-top: 3.125em;
+}
+
+.team-wrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9.375em;
+  margin-bottom: 9.375em;
+  text-align: center;
+}
+.team-wrapper h2 {
+  margin-bottom: 1.875em;
+}
+.team-wrapper p {
+  margin-bottom: 3.75em;
+}
+.team-wrapper .team-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5em;
+}
+.team-wrapper .team-cards-wrapper .team-card {
+  height: 365px;
+  width: 289px;
+  text-align: center;
+  position: relative;
+}
+.team-wrapper .team-cards-wrapper .team-card figcaption {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  text-align: center;
+}
+.team-wrapper .team-cards-wrapper .team-card figcaption .team-card-title {
+  margin-bottom: 0;
+}
+.team-wrapper .team-cards-wrapper .team-card figcaption .team-card-desc {
+  margin-bottom: 0;
+}
+.team-wrapper .team-cards-wrapper .team-card img {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.video-popup-wrapper {
+  background-color: rgba(47, 72, 88, 0.9);
+  position: absolute;
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.story-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9001;
+  width: 100%;
+  height: 100%;
+}
 
 @media screen and (max-width: 1024px) {
   .stories-grid-wrapper .stories-grid {
@@ -2302,6 +2407,15 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   .stories-grid-wrapper .stories-grid .story-card .card-alt-text {
     left: 14px;
   }
+
+  .team-cards-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+    row-gap: 2.8125em;
+  }
+  .team-cards-wrapper .team-card {
+    height: 352px;
+    width: 289px;
+  }
 }
 @media screen and (max-width: 640px) {
   .stories-grid-wrapper .stories-grid {
@@ -2318,6 +2432,18 @@ div.gm-style-iw.gm-style-iw-c div.gm-style-iw-d {
   .stories-grid-wrapper .stories-grid .story-card img {
     height: 134px;
     width: 134px;
+  }
+
+  .team-wrapper {
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+  }
+  .team-wrapper p {
+    margin-bottom: 5em;
+  }
+  .team-wrapper .team-cards-wrapper .team-card {
+    height: 354px;
+    width: 280px;
   }
 }
 
