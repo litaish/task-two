@@ -124,7 +124,9 @@ function handleVideoOpen(targetElement, element) {
   document.body.appendChild(videoContainer)
   
   videoContainer.innerHTML = `
-    <video class="story-video" src="${element["video"]}"></video>
+    <video class="story-video" src="${element["video"]}">
+      <source src="${element["video"]}" type="video/mp4">
+    </video>
   `;
 }
 
