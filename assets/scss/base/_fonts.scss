@@ -30,6 +30,7 @@ $font-bold--weight: 700;
 .f-oswald-tba-text {font-family: $oswald; font-size: $font18--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
 .f-oswald-alt-text {font-family: $oswald; font-size: $font24--size; font-weight: $font-bold--weight; color: colors.$whitePanel}
 .f-oswald-team-card-name {font-family: $oswald; font-size: $font24--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
+.f-oswald-video-alttext {font-family: $oswald; font-size: $font36--size; font-weight: $font-normal--weight; color: colors.$whitePanel}
 
 // Montserrat fonts
 .f-mont-nav {font-family: $montserrat; font-size: $font18--size; font-weight: $font-normal--weight; color: colors.$blackText}
@@ -64,6 +65,9 @@ $font-bold--weight: 700;
 }
 // Largest phone size
 @include mixins.mob-large {
+    .f-oswald-video-alttext {
+        font-size: $font24--size;
+    }
     .f-mont-white18-team-desc {
         font-size: $font14--size;
     }

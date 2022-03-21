@@ -113,21 +113,58 @@ function renderCards(data) {
   });
 }
 
+let appended = false;
+
 /*
   Opens up a youtube video popup 
  */
 function handleVideoOpen(targetElement, element) {
-  console.log(targetElement);
-  console.log(element);
+
+  // If video container is already created, toggle visibility once clicked again.
+  if (appended) {
+    toggleVideoPopup();
+    return;
+  }
+
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video-popup-wrapper');
+  videoContainer.setAttribute('id', 'videoOverlay')
   document.body.appendChild(videoContainer)
   
   videoContainer.innerHTML = `
-    <video class="story-video" src="${element["video"]}">
-      <source src="${element["video"]}" type="video/mp4">
-    </video>
+      <div class="video-container">
+      <button class="close-video-btn" style="background: url('./assets/img/other/video_close.png') no-repeat;" onclick="toggleVideoPopup();"></button>
+        <video id="myVideo" class="story-video" src="${element["video"]}" poster="${element["thumbnail"]}">
+          <source src="${element["video"]}" type="video/mp4">
+        </video>
+       <h2 class="f-oswald-video-alttext video-alt-text">${element["altText"]}</h2>
+       <a class="play-circle play-popup" onclick="playVideo();"><i class="fa fa-play fa-2x"></i></a>
+      </div>
   `;
+  appended = true;
+}
+/*
+  Triggered on X button onclick event
+*/
+function toggleVideoPopup(){
+  const videoPopup = document.getElementById('videoOverlay');
+  
+  videoPopup.style.display = videoPopup.style.display == "none" ? "block" : "none";
+}
+
+/*
+  Plays video with custom play button
+ */
+function playVideo() {
+  let video = document.getElementById('myVideo');
+
+  if (video.paused == true) {
+    // Play the video
+    video.play();
+  } else {
+    // Pause the video
+    video.pause();
+  }
 }
 
 /*
