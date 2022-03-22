@@ -133,12 +133,14 @@ function handleVideoOpen(targetElement, element) {
   
   videoContainer.innerHTML = `
       <div class="video-container">
-      <button class="close-video-btn" style="background: url('./assets/img/other/video_close.png') no-repeat;" onclick="toggleVideoPopup();"></button>
-        <video id="myVideo" class="story-video" src="${element["video"]}" poster="${element["thumbnail"]}">
-          <source src="${element["video"]}" type="video/mp4">
-        </video>
-       <h2 class="f-oswald-video-alttext video-alt-text">${element["altText"]}</h2>
-       <a class="play-circle play-popup" onclick="playVideo();"><i class="fa fa-play fa-2x"></i></a>
+          <button class="close-video-btn" style="background: url('./assets/img/other/video_close.png') no-repeat;" onclick="toggleVideoPopup();"></button>
+        <div class="video-wrapper">
+          <video id="myVideo" class="story-video" src="${element["video"]}" poster="${element["thumbnail"]}" onclick="playVideo();">
+            <source src="${element["video"]}" type="video/mp4">
+          </video>
+          <a id="playBtn" class="play-circle play-popup" onclick="playVideo();"><i class="fa fa-play fa-2x"></i></a>
+        </div>
+        <h2 class="f-oswald-video-alttext video-alt-text">${element["altText"]}</h2>
       </div>
   `;
   appended = true;
@@ -156,13 +158,16 @@ function toggleVideoPopup(){
   Plays video with custom play button
  */
 function playVideo() {
-  let video = document.getElementById('myVideo');
+  const playButton = document.getElementById('playBtn');
+  const video = document.getElementById('myVideo');
 
   if (video.paused == true) {
     // Play the video
+    playButton.style.display = 'none';
     video.play();
   } else {
     // Pause the video
+    playButton.style.display = 'inline';
     video.pause();
   }
 }

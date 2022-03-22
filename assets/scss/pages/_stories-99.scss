@@ -111,17 +111,17 @@ $mob-card--size: 134px;
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin-top: 2em;
+  margin-top: 4.5em;
   margin-left: 13%;
   text-align: center;
-  .story-video {
-    height: auto;
-    z-index: 9001;
-  }
   .video-alt-text {
     z-index: 9002;
-    margin-top: 1.5625em;
+    margin-top: 0.5em;
   }
+}
+.story-video {
+  height: auto;
+  z-index: 9001;
 }
 .close-video-btn {
   height: 25px;
@@ -130,13 +130,14 @@ $mob-card--size: 134px;
   border: none;
   z-index: 9003;
   align-self: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 5.5em;
+}
+.video-wrapper {
+  position: relative;
 }
 .play-popup {
   z-index: 9005 !important;
   position: absolute;
-  top: 45%;
-  right: 5%;
   padding-left: 0;
   padding-right: 0;
   cursor: pointer;
@@ -144,12 +145,20 @@ $mob-card--size: 134px;
     color: colors.$whitePanel;
   }
 }
+.video-controls-wrapper {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
 // Media queries for stories page
 @include mixins.tab {
   .video-container {
     margin-top: 15em;
     width: 85%;
     margin-left: 8%;
+  }
+  .close-video-btn {
+    margin-bottom: 6em;
   }
   .stories-grid-wrapper {
     .stories-grid {
@@ -178,6 +187,9 @@ $mob-card--size: 134px;
   }
 }
 @include mixins.mob-large {
+  .close-video-btn {
+    margin-bottom: 3em;
+  }
   .play-popup {
     top: 35%;
     right: 3%;
